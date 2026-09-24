@@ -26,6 +26,17 @@ Para usar o npm também no PowerShell, rode uma vez (vale só para o seu usuári
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
+## Publicação (GitHub Pages)
+
+Cada push na `main` roda `.github/workflows/deploy.yml`, que faz o build e
+publica a pasta `dist/` em https://hpm-marketing.github.io/homeplace-site/.
+
+- Em **Settings → Pages → Build and deployment → Source**, a opção precisa ser
+  **GitHub Actions** (com "Deploy from a branch" o Pages publica o código-fonte
+  e a página fica em branco).
+- `base: '/homeplace-site/'` em `vite.config.ts` deve ter o mesmo nome do
+  repositório. Se o repositório for renomeado, atualize esse valor.
+
 ## Estrutura
 
 ```
