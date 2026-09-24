@@ -1,0 +1,155 @@
+/* "Somos +40 lojas" (branco) + faixa "Estamos onde você precisa" (#00ae15) */
+.presenca__top-inner {
+  position: relative;
+  width: var(--col);
+  height: calc(263 * var(--u));
+  margin-inline: auto;
+}
+
+.presenca__somos {
+  position: absolute;
+  z-index: 3;
+  top: calc(5 * var(--u));
+  left: calc(22 * var(--u));
+  width: calc(300 * var(--u));
+  height: calc(196 * var(--u));
+}
+
+/* O mapa invade a faixa verde: fica acima dela e abaixo do "+40 lojas" (como no Figma) */
+.presenca__mapa {
+  position: absolute;
+  z-index: 2;
+  top: calc(125 * var(--u));
+  left: calc(231 * var(--u));
+  width: calc(214 * var(--u));
+  height: calc(200 * var(--u));
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.presenca__band {
+  position: relative;
+  background: var(--green-dark);
+}
+
+.presenca__band-inner {
+  position: relative;
+  width: var(--col);
+  height: calc(338 * var(--u));
+  margin-inline: auto;
+  padding-top: calc(97 * var(--u));
+}
+
+.presenca__selo {
+  position: absolute;
+  z-index: 3;
+  top: calc(-27 * var(--u));
+  left: calc(-32 * var(--u));
+  width: calc(136 * var(--u));
+  height: calc(141 * var(--u));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.presenca__selo img {
+  position: absolute;
+  top: -13.5%;
+  left: -17.2%;
+  width: 132.48%;
+  height: 127.61%;
+}
+
+/* No Figma o título fica acima da sacola decorativa */
+.presenca__content {
+  position: relative;
+  z-index: 1;
+  padding-left: calc(26 * var(--u));
+}
+
+.presenca__title {
+  color: var(--white);
+  font-size: calc(48 * var(--u));
+  line-height: calc(50 * var(--u));
+  white-space: nowrap;
+}
+
+.presenca__cta {
+  margin-top: calc(13 * var(--u));
+}
+
+.presenca__sacola {
+  position: absolute;
+  top: calc(159 * var(--u));
+  left: calc(324 * var(--u));
+  width: calc(116 * var(--u));
+  height: calc(179 * var(--u));
+  pointer-events: none;
+}
+
+/* Desktop: "+40 lojas" e mapa lado a lado; faixa verde com título e CTA */
+@media (min-width: 1024px) {
+  .presenca__top-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: calc(48 * var(--u));
+    width: var(--container);
+    height: auto;
+    padding-top: calc(40 * var(--u));
+  }
+
+  .presenca__somos {
+    position: relative;
+    width: calc(460 * var(--u));
+    height: calc(300.5 * var(--u));
+    margin-bottom: calc(48 * var(--u));
+  }
+
+  .presenca__mapa {
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-self: center;
+    width: calc(428 * var(--u));
+    height: calc(400 * var(--u));
+    margin-bottom: calc(-150 * var(--u));
+  }
+
+  .presenca__band-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(48 * var(--u));
+    width: var(--container);
+    height: auto;
+    padding: calc(120 * var(--u)) 0 calc(96 * var(--u));
+  }
+
+  .presenca__selo {
+    top: calc(-50 * var(--u));
+    left: calc(-60 * var(--u));
+    width: calc(170 * var(--u));
+    height: calc(176 * var(--u));
+  }
+
+  .presenca__content {
+    padding-left: 0;
+  }
+
+  .presenca__title {
+    font-size: calc(60 * var(--u));
+    line-height: calc(62 * var(--u));
+  }
+
+  .presenca__cta {
+    margin-top: calc(28 * var(--u));
+  }
+
+  .presenca__sacola {
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    width: calc(145 * var(--u));
+    height: calc(223.75 * var(--u));
+  }
+}

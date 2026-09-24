@@ -1,0 +1,56 @@
+/* Botão "quero falar com um consultor" — Figma: 391x52, raio 9 */
+.cta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  width: calc(391 * var(--u));
+  height: calc(52 * var(--u));
+  padding-left: calc(10 * var(--u));
+  border-radius: calc(9 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: calc(17 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta--compact {
+  width: calc(312 * var(--u));
+}
+
+.cta--white {
+  background: var(--white);
+  color: var(--black);
+}
+
+.cta--white .cta__icon {
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+  object-fit: cover;
+}
+
+.cta--green {
+  background: var(--green-accent);
+  color: var(--white);
+  padding-left: calc(13 * var(--u));
+}
+
+.cta--green .cta__icon {
+  width: calc(37 * var(--u));
+  height: calc(37 * var(--u));
+}

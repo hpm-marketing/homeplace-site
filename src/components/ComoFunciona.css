@@ -1,0 +1,100 @@
+/* "Simples, prático e rápido" — Figma: fundo #1e1e1e, 416px de altura */
+.como {
+  background: var(--graphite);
+  color: var(--white);
+}
+
+.como__inner {
+  width: var(--col);
+  margin-inline: auto;
+  padding: calc(17 * var(--u)) 0 calc(29 * var(--u));
+}
+
+.como__title {
+  font-size: calc(41 * var(--u));
+  line-height: calc(49 * var(--u));
+  text-align: center;
+  white-space: nowrap;
+}
+
+.como__steps {
+  display: flex;
+  flex-direction: column;
+  gap: calc(30 * var(--u));
+  margin-top: calc(17 * var(--u));
+  padding-left: calc(43 * var(--u));
+}
+
+.como__step {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(13 * var(--u));
+}
+
+.como__icon {
+  flex-shrink: 0;
+  width: calc(65 * var(--u));
+  height: calc(65 * var(--u));
+}
+
+.como__text {
+  padding-top: calc(9 * var(--u));
+}
+
+.como__step-title {
+  font-size: calc(20 * var(--u));
+  line-height: calc(24 * var(--u));
+}
+
+.como__step-desc {
+  font-size: calc(13 * var(--u));
+  line-height: calc(16 * var(--u));
+  white-space: nowrap;
+}
+
+/* Desktop: título à esquerda, passos à direita */
+@media (min-width: 1024px) {
+  .como__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: calc(48 * var(--u));
+    width: var(--container);
+    padding: calc(96 * var(--u)) 0;
+  }
+
+  .como__title {
+    font-size: calc(60 * var(--u));
+    line-height: calc(68 * var(--u));
+    text-align: left;
+  }
+
+  .como__steps {
+    gap: calc(36 * var(--u));
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .como__step {
+    gap: calc(20 * var(--u));
+  }
+
+  .como__icon {
+    width: calc(84 * var(--u));
+    height: calc(84 * var(--u));
+  }
+
+  .como__text {
+    padding-top: calc(12 * var(--u));
+  }
+
+  .como__step-title {
+    font-size: calc(26 * var(--u));
+    line-height: calc(32 * var(--u));
+  }
+
+  .como__step-desc {
+    font-size: calc(17 * var(--u));
+    line-height: calc(21 * var(--u));
+  }
+}

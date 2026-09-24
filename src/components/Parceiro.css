@@ -1,0 +1,119 @@
+/* "Seja um parceiro HomePlace" — Figma: fundo #00ae15, 416px de altura */
+.parceiro {
+  background: var(--green-dark);
+}
+
+.parceiro__inner {
+  position: relative;
+  width: var(--col);
+  margin-inline: auto;
+  padding: calc(18 * var(--u)) 0 calc(64 * var(--u));
+}
+
+.parceiro__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parceiro__title {
+  color: var(--white);
+  font-size: calc(41 * var(--u));
+  line-height: calc(41 * var(--u));
+  text-align: center;
+}
+
+.parceiro__title > span {
+  display: block;
+}
+
+.parceiro__title-light {
+  color: var(--black);
+  font-size: calc(33 * var(--u));
+}
+
+.parceiro__text {
+  width: calc(390 * var(--u));
+  margin-top: calc(13 * var(--u));
+  color: var(--white);
+  font-size: calc(20 * var(--u));
+  line-height: calc(20 * var(--u));
+  text-align: center;
+}
+
+.parceiro__cta {
+  margin-top: calc(26 * var(--u));
+}
+
+/* Selo com a lata: 146x146 girado 10.98°, sai da seção como no Figma */
+.parceiro__selo {
+  position: absolute;
+  top: calc(299 * var(--u));
+  left: calc(312 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(171.219 * var(--u));
+  height: calc(170.969 * var(--u));
+  pointer-events: none;
+}
+
+.parceiro__selo img {
+  width: calc(146.129 * var(--u));
+  height: calc(145.813 * var(--u));
+  object-fit: cover;
+  transform: rotate(10.98deg);
+}
+
+/* Desktop: texto à esquerda, selo grande à direita */
+@media (min-width: 1024px) {
+  .parceiro__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: calc(48 * var(--u));
+    width: var(--container);
+    padding: calc(96 * var(--u)) 0;
+  }
+
+  .parceiro__content {
+    align-items: flex-start;
+  }
+
+  .parceiro__title {
+    font-size: calc(60 * var(--u));
+    line-height: calc(60 * var(--u));
+    text-align: left;
+  }
+
+  .parceiro__title-light {
+    font-size: calc(48 * var(--u));
+  }
+
+  .parceiro__text {
+    width: auto;
+    max-width: calc(560 * var(--u));
+    margin-top: calc(24 * var(--u));
+    font-size: calc(22 * var(--u));
+    line-height: calc(26 * var(--u));
+    text-align: left;
+  }
+
+  .parceiro__cta {
+    margin-top: calc(32 * var(--u));
+  }
+
+  .parceiro__selo {
+    position: relative;
+    top: auto;
+    left: auto;
+    justify-self: center;
+    width: calc(380 * var(--u));
+    height: calc(380 * var(--u));
+  }
+
+  .parceiro__selo img {
+    width: calc(320 * var(--u));
+    height: calc(319.3 * var(--u));
+  }
+}

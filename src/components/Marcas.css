@@ -1,0 +1,110 @@
+/* "Marcas parceiras" */
+.marcas__inner {
+  width: var(--col);
+  margin-inline: auto;
+  padding: calc(65 * var(--u)) 0 calc(24 * var(--u));
+}
+
+.marcas__title {
+  color: var(--green-accent);
+  font-size: calc(41 * var(--u));
+  line-height: calc(36 * var(--u));
+  text-align: center;
+}
+
+.marcas__text {
+  width: calc(390 * var(--u));
+  margin: calc(8 * var(--u)) auto 0;
+  color: var(--black);
+  font-size: calc(20 * var(--u));
+  line-height: calc(24 * var(--u));
+  text-align: center;
+}
+
+/* Palco 440x139 com as posições dos logos no Figma */
+.marcas__logos {
+  position: relative;
+  width: calc(440 * var(--u));
+  height: calc(139 * var(--u));
+  margin-top: calc(23 * var(--u));
+}
+
+.marcas__logo {
+  position: absolute;
+  overflow: hidden;
+}
+
+.marcas__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.marcas__logo--solar {
+  top: calc(7 * var(--u));
+  left: calc(35 * var(--u));
+  width: calc(174 * var(--u));
+  height: calc(52 * var(--u));
+}
+
+.marcas__logo--purina {
+  top: 0;
+  left: calc(217 * var(--u));
+  width: calc(193 * var(--u));
+  height: calc(70 * var(--u));
+}
+
+/* Recorte do Figma: imagem com 275.71% de altura, deslocada -87.14% */
+.marcas__logo--purina img {
+  position: absolute;
+  top: -87.14%;
+  left: 0;
+  height: 275.71%;
+  object-fit: fill;
+}
+
+.marcas__logo--baly {
+  top: calc(79 * var(--u));
+  left: calc(53 * var(--u));
+  width: calc(127 * var(--u));
+  height: calc(60 * var(--u));
+}
+
+.marcas__logo--nestle {
+  top: calc(90 * var(--u));
+  left: calc(234 * var(--u));
+  width: calc(156 * var(--u));
+  height: calc(42 * var(--u));
+}
+
+/* Desktop: texto à esquerda, logos à direita */
+@media (min-width: 1024px) {
+  .marcas__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: calc(48 * var(--u));
+    width: var(--container);
+    padding: calc(150 * var(--u)) 0 calc(96 * var(--u));
+  }
+
+  .marcas__title {
+    font-size: calc(60 * var(--u));
+    line-height: calc(56 * var(--u));
+    text-align: left;
+  }
+
+  .marcas__text {
+    width: auto;
+    max-width: calc(460 * var(--u));
+    margin: calc(20 * var(--u)) 0 0;
+    font-size: calc(22 * var(--u));
+    line-height: calc(29 * var(--u));
+    text-align: left;
+  }
+
+  .marcas__logos {
+    --u: clamp(1px, calc(100vw / 1024), 1.4px);
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "shell": {
+      "executable": "cmd.exe",
+      "args": ["/d", "/c"]
+    },
+    "env": {
+      "PATH": "C:\\Program Files\\nodejs;${env:APPDATA}\\npm;${env:PATH}"
+    }
+  },
+  "tasks": [
+    {
+      "label": "Rodar site (dev)",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Gerar build",
+      "type": "shell",
+      "command": "npm run build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Instalar dependências",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+/* Navigation Bar — Figma: 440x96, #f6f2f2, sombra 0 2 4 rgba(0,0,0,.1) */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: calc(20 * var(--u));
+  width: var(--col);
+  height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: calc(16 * var(--u));
+}
+
+.header__menu-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+  border-radius: calc(20 * var(--u));
+  transition: background-color 0.2s ease;
+}
+
+.header__menu-btn:hover {
+  background: rgba(17, 24, 39, 0.06);
+}
+
+.header__menu-btn img {
+  width: calc(24 * var(--u));
+  height: calc(24 * var(--u));
+}
+
+/* O PNG do logo tem 316x178 e transborda a barra de 96px (como no Figma) */
+.header__logo {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(316 * var(--u));
+  height: 100%;
+}
+
+.header__logo img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(316 * var(--u));
+  height: calc(178 * var(--u));
+  object-fit: cover;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Menu mobile (dropdown) */
+.header__nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--header-bg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Transição só no mobile, para o menu não "piscar" ao cruzar o breakpoint */
+@media (max-width: 1023.98px) {
+  .header__nav {
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
+  }
+}
+
+.header.is-open .header__nav {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.header__nav ul {
+  display: flex;
+  flex-direction: column;
+  padding: calc(8 * var(--u)) calc(16 * var(--u)) calc(20 * var(--u));
+}
+
+.header__nav a {
+  display: block;
+  padding: calc(12 * var(--u)) calc(8 * var(--u));
+  font-weight: 900;
+  font-size: calc(17 * var(--u));
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+  transition: color 0.2s ease;
+}
+
+.header__nav a:hover {
+  color: var(--green-accent);
+}
+
+.header__nav-cta {
+  margin-top: calc(12 * var(--u));
+}
+
+.header__nav-cta a {
+  border: 0;
+  border-radius: calc(9 * var(--u));
+  background: var(--green-accent);
+  color: var(--white);
+  text-align: center;
+}
+
+.header__nav-cta a:hover {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+/* Desktop: logo à esquerda e navegação em linha */
+@media (min-width: 1024px) {
+  .header__inner {
+    width: var(--container);
+    padding-inline: 0;
+    justify-content: space-between;
+  }
+
+  .header__menu-btn {
+    display: none;
+  }
+
+  .header__logo {
+    margin-left: calc(-40 * var(--u));
+  }
+
+  .header__nav {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  .header__nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: calc(26 * var(--u));
+    padding: 0;
+  }
+
+  .header__nav a {
+    padding: calc(8 * var(--u)) 0;
+    border: 0;
+    font-size: calc(14 * var(--u));
+  }
+
+  .header__nav-cta {
+    margin: 0;
+  }
+
+  .header__nav-cta a {
+    padding: calc(12 * var(--u)) calc(20 * var(--u));
+  }
+}
