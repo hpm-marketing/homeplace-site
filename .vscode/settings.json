@@ -1,0 +1,14 @@
+{
+  // O PowerShell deste Windows bloqueia scripts (npm.ps1/npx.ps1).
+  // O Prompt de Comando usa npm.cmd/npx.cmd, que funcionam sem alterar a política de segurança.
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+
+  // Garante o Node no PATH mesmo em terminais abertos antes da instalação.
+  "terminal.integrated.env.windows": {
+    "PATH": "C:\\Program Files\\nodejs;${env:APPDATA}\\npm;${env:PATH}"
+  },
+
+  // Os scripts do package.json (painel "NPM Scripts") também rodam pelo cmd.
+  "npm.scriptExplorerAction": "run",
+  "npm.packageManager": "npm"
+}
