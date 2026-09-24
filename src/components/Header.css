@@ -166,6 +166,10 @@
     margin: 0;
   }
 
+  .header__nav-item--diferenciais {
+    display: none;
+  }
+
   .header__nav-cta a {
     padding: calc(12 * var(--u)) calc(20 * var(--u));
   }

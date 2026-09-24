@@ -1,6 +1,6 @@
 import logoFooter from '../assets/logo-footer.png'
 import instagram from '../assets/instagram.svg'
-import { INSTAGRAM_URL, SAC_TEL } from '../constants'
+import { INSTAGRAM_URL, SAC_URL } from '../constants'
 import './Footer.css'
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
           <img src={logoFooter} alt="Homeplace Market" width={158} height={79} />
         </a>
 
-        <a className="footer__sac" href={SAC_TEL}>
+        <a className="footer__sac" href={SAC_URL}>
           <span className="footer__sac-label">sac 24h</span>
           <span className="footer__sac-phone">(85) 9.9909-9972</span>
         </a>

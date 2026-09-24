@@ -232,6 +232,7 @@
     width: calc(428 * var(--u));
     height: calc(400 * var(--u));
     margin-bottom: calc(-150 * var(--u));
+    transform: translateX(calc(35 * var(--u)));
   }
 
   /* O mapa invade 150px da faixa; o conteúdo começa abaixo dele */

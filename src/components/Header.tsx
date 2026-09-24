@@ -37,7 +37,10 @@ export default function Header() {
         <nav id="menu-principal" className="header__nav" aria-label="Menu principal">
           <ul>
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
+              <li
+                key={link.href}
+                className={link.href === '#diferenciais' ? 'header__nav-item--diferenciais' : undefined}
+              >
                 <a href={link.href} onClick={close}>
                   {link.label}
                 </a>

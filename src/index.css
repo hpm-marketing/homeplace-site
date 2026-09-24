@@ -171,7 +171,7 @@ button {
 
   /* Os totens do card de tecnologia passam da base: sobra espaço embaixo */
   .features-section {
-    padding: calc(80 * var(--u)) 0 calc(120 * var(--u));
+    padding: calc(48 * var(--u)) 0 calc(72 * var(--u));
   }
 
   .features-cards-container {
