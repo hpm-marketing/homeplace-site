@@ -1,8 +1,20 @@
 /* "Marcas parceiras" */
+.marcas {
+  position: relative;
+  overflow: hidden;
+  padding: calc(65 * var(--u)) 0 calc(48 * var(--u));
+}
+
 .marcas__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.marcas__content {
   width: var(--col);
   margin-inline: auto;
-  padding: calc(65 * var(--u)) 0 calc(24 * var(--u));
+  margin-bottom: calc(28 * var(--u));
+  text-align: center;
 }
 
 .marcas__title {
@@ -14,97 +26,137 @@
 
 .marcas__text {
   width: calc(390 * var(--u));
-  margin: calc(8 * var(--u)) auto 0;
+  margin: calc(12 * var(--u)) auto 0;
   color: var(--black);
   font-size: calc(20 * var(--u));
   line-height: calc(24 * var(--u));
   text-align: center;
 }
 
-/* Palco 440x139 com as posições dos logos no Figma */
-.marcas__logos {
-  position: relative;
-  width: calc(440 * var(--u));
-  height: calc(139 * var(--u));
-  margin-top: calc(23 * var(--u));
-}
-
-.marcas__logo {
-  position: absolute;
-  overflow: hidden;
-}
-
-.marcas__logo img {
+/* Container do Carrossel em Duas Fileiras */
+.marcas__marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(16 * var(--u));
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.marcas__logo--solar {
-  top: calc(7 * var(--u));
-  left: calc(35 * var(--u));
-  width: calc(174 * var(--u));
-  height: calc(52 * var(--u));
+.marcas__marquee-row {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
 }
 
-.marcas__logo--purina {
-  top: 0;
-  left: calc(217 * var(--u));
-  width: calc(193 * var(--u));
-  height: calc(70 * var(--u));
+.marcas__marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: calc(16 * var(--u));
+  min-width: 100%;
+  will-change: transform;
 }
 
-/* Recorte do Figma: imagem com 275.71% de altura, deslocada -87.14% */
-.marcas__logo--purina img {
-  position: absolute;
-  top: -87.14%;
-  left: 0;
-  height: 275.71%;
-  object-fit: fill;
+.marcas__marquee-track--left {
+  animation: marqueeLeft 28s linear infinite;
 }
 
-.marcas__logo--baly {
-  top: calc(79 * var(--u));
-  left: calc(53 * var(--u));
-  width: calc(127 * var(--u));
-  height: calc(60 * var(--u));
+.marcas__marquee-track--right {
+  animation: marqueeRight 32s linear infinite;
 }
 
-.marcas__logo--nestle {
-  top: calc(90 * var(--u));
-  left: calc(234 * var(--u));
-  width: calc(156 * var(--u));
-  height: calc(42 * var(--u));
+.marcas__marquee-container:hover .marcas__marquee-track {
+  animation-play-state: paused;
 }
 
-/* Desktop: texto à esquerda, logos à direita */
+/* Animações do Loop Infinito */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Card dos Logos */
+.marcas__card {
+  flex-shrink: 0;
+  width: calc(150 * var(--u));
+  height: calc(80 * var(--u));
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: calc(16 * var(--u));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(12 * var(--u)) calc(16 * var(--u));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.marcas__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.marcas__card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Desktop */
 @media (min-width: 1024px) {
-  .marcas__inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: calc(48 * var(--u));
+  .marcas {
+    padding: calc(100 * var(--u)) 0 calc(80 * var(--u));
+  }
+
+  .marcas__content {
     width: var(--container);
-    padding: calc(150 * var(--u)) 0 calc(96 * var(--u));
+    margin-bottom: calc(48 * var(--u));
   }
 
   .marcas__title {
     font-size: calc(60 * var(--u));
     line-height: calc(56 * var(--u));
-    text-align: left;
   }
 
   .marcas__text {
     width: auto;
-    max-width: calc(460 * var(--u));
-    margin: calc(20 * var(--u)) 0 0;
+    max-width: calc(560 * var(--u));
+    margin: calc(16 * var(--u)) auto 0;
     font-size: calc(22 * var(--u));
     line-height: calc(29 * var(--u));
-    text-align: left;
   }
 
-  .marcas__logos {
-    --u: clamp(1px, calc(100vw / 1024), 1.4px);
-    margin-top: 0;
+  .marcas__card {
+    width: calc(180 * var(--u));
+    height: calc(90 * var(--u));
+    padding: calc(14 * var(--u)) calc(20 * var(--u));
+  }
+
+  .marcas__marquee-container {
+    gap: calc(20 * var(--u));
+  }
+
+  .marcas__marquee-track {
+    gap: calc(20 * var(--u));
   }
 }
+

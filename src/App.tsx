@@ -17,8 +17,12 @@ export default function App() {
         <Hero />
         <Presenca />
         <ComoFunciona />
-        <Diferenciais />
-        <Tecnologia />
+        <section className="features-section">
+          <div className="features-cards-container">
+            <Diferenciais />
+            <Tecnologia />
+          </div>
+        </section>
         <Marcas />
         <Parceiro />
         <Faq />

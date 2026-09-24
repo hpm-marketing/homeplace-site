@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode } from 'react'
 import lojaInterior from '../assets/loja-interior.png'
+import lojaInteriorDesktop from '../assets/loja-interior-desktop.png'
 import iconeMonitoramento from '../assets/icone-monitoramento.svg'
 import iconeFranqueados from '../assets/icone-franqueados.svg'
 import iconeMix from '../assets/icone-mix.svg'
@@ -10,121 +10,99 @@ import { CONSULTOR_URL } from '../constants'
 import CtaButton from './CtaButton'
 import './Diferenciais.css'
 
-type Diferencial = {
-  icon: string
-  label: ReactNode
-  /* Posição do ícone e deslocamento vertical do texto no arco (px do Figma) */
-  x: number
-  y: number
-  textY: number
-  extra?: ReactNode
-}
-
-const DIFERENCIAIS: Diferencial[] = [
+const DIFERENCIAIS = [
   {
     icon: iconeMonitoramento,
     label: (
       <>
-        monitoramento
+        MONITORAMENTO
         <br />
-        24 horas
+        24 HORAS
       </>
     ),
-    x: 101,
-    y: 0,
-    textY: 3,
   },
   {
     icon: iconeFranqueados,
     label: (
       <>
-        não somos
+        NÃO SOMOS
         <br />
-        franqueados
+        FRANQUEADOS
       </>
     ),
-    x: 144,
-    y: 65,
-    textY: 3,
   },
   {
     icon: iconeMix,
     label: (
       <>
-        maior mix de
+        MAIOR MIX DE
         <br />
-        produtos para
+        PRODUTOS PARA
         <br />
-        minimercado
+        MINIMERCADO
       </>
     ),
-    x: 172,
-    y: 130,
-    textY: 0,
   },
   {
     icon: iconeLogistica,
     label: (
       <>
-        equipe de
+        EQUIPE DE
         <br />
-        logistica
+        LOGÍSTICA
       </>
     ),
-    x: 167,
-    y: 204,
-    textY: 9,
-    extra: <img className="dif__truck" src={caminhao} alt="" width={44} height={28} />,
+    extra: <img className="dif-card__truck" src={caminhao} alt="" width={44} height={28} />,
   },
   {
     icon: iconeDistribuicao,
     label: (
       <>
-        centro de
+        CENTRO DE
         <br />
-        distribuição
+        DISTRIBUIÇÃO
       </>
     ),
-    x: 124,
-    y: 270,
-    textY: 9,
   },
 ]
 
 export default function Diferenciais() {
   return (
-    <section id="diferenciais" className="dif" aria-labelledby="dif-titulo">
-      <div className="dif__inner">
-        <div className="dif__header">
-          <h2 id="dif-titulo" className="dif__title">
-            <span className="dif__title-light t-medium">principais</span>
-            <span className="t-black">diferenciais</span>
-          </h2>
-          <div className="dif__bar" aria-hidden="true" />
-        </div>
+    <section id="diferenciais" className="dif-card" aria-labelledby="dif-titulo">
+      <div className="dif-card__header">
+        <h2 id="dif-titulo" className="dif-card__title">
+          <span className="dif-card__title-light t-medium">PRINCIPAIS</span>
+          <span className="dif-card__bar" aria-hidden="true" />
+          <span className="dif-card__title-bold t-black">DIFERENCIAIS</span>
+        </h2>
+      </div>
 
-        <div className="dif__stage">
-          <img className="dif__photo" src={lojaInterior} alt="Interior de uma loja Homeplace Market" />
-          <ul className="dif__list">
-            {DIFERENCIAIS.map((item, i) => (
-              <li
-                key={i}
-                className="dif__item"
-                style={{ '--x': item.x, '--y': item.y, '--ty': item.textY } as CSSProperties}
-              >
-                <img className="dif__icon" src={item.icon} alt="" width={65} height={65} />
+      <div className="dif-card__body">
+        <div className="dif-card__photo-container">
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={lojaInteriorDesktop} />
+            <img className="dif-card__photo" src={lojaInterior} alt="Interior de uma loja Homeplace Market" />
+          </picture>
+        </div>
+        <ul className="dif-card__list">
+          {DIFERENCIAIS.map((item, i) => (
+            <li key={i} className="dif-card__item">
+              <div className="dif-card__icon-box">
+                <img className="dif-card__icon" src={item.icon} alt="" />
                 {item.extra}
-                <span className="dif__label t-black">{item.label}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+              <span className="dif-card__label t-black">{item.label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
+      <div className="dif-card__footer">
         <CtaButton
-          className="dif__cta"
+          className="dif-card__cta"
           variant="green"
           href={CONSULTOR_URL}
-          label="quero falar com um consultor"
+          label="QUERO FALAR COM UM CONSULTOR"
         />
       </div>
     </section>

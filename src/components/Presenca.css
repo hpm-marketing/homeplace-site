@@ -6,14 +6,54 @@
   margin-inline: auto;
 }
 
-.presenca__somos {
+.presenca__somos-graphic {
   position: absolute;
   z-index: 3;
   top: calc(5 * var(--u));
   left: calc(22 * var(--u));
-  width: calc(300 * var(--u));
-  height: calc(196 * var(--u));
+  width: calc(340 * var(--u));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  user-select: none;
 }
+
+.presenca__somos-label {
+  color: var(--black);
+  font-size: calc(28 * var(--u));
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.presenca__somos-number {
+  display: flex;
+  align-items: center;
+  color: var(--green-accent);
+  font-size: calc(98 * var(--u));
+  line-height: 0.9;
+  font-weight: 900;
+  margin: calc(-4 * var(--u)) 0;
+  font-family: var(--font-display);
+}
+
+.presenca__plus {
+  color: var(--green-accent);
+}
+
+.presenca__count {
+  color: var(--green-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.presenca__somos-sublabel {
+  color: var(--black);
+  font-size: calc(23 * var(--u));
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
 
 /* O mapa invade a faixa verde: fica acima dela e abaixo do "+40 lojas" (como no Figma) */
 .presenca__mapa {
@@ -26,6 +66,7 @@
   object-fit: cover;
   pointer-events: none;
 }
+
 
 .presenca__band {
   position: relative;
@@ -86,42 +127,123 @@
   pointer-events: none;
 }
 
-/* Desktop: "+40 lojas" e mapa lado a lado; faixa verde com título e CTA */
+/* O número tem largura fixa (2 dígitos) para o layout não "pular" durante a contagem */
+.presenca__count {
+  display: inline-block;
+  min-width: 2ch;
+}
+
+/* Linhas da frase "Estamos onde você precisa" (mesma quebra do Figma) */
+.presenca__line {
+  display: block;
+}
+
+/* Entrada da frase e do botão ao rolar até a faixa verde.
+   Antes de entrar na tela ficam ocultos; depois voltam aos estilos normais
+   (a animação não fica "presa", então o hover do botão continua funcionando).
+   Quem ativou "reduzir movimento" no sistema vê a frase direto, sem animação. */
+@media (prefers-reduced-motion: no-preference) {
+  .presenca__band.is-armed:not(.is-visible) .presenca__line,
+  .presenca__band.is-armed:not(.is-visible) .presenca__cta {
+    opacity: 0;
+  }
+
+  .presenca__band.is-visible .presenca__line {
+    animation: presenca-sobe 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  .presenca__band.is-visible .presenca__line:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .presenca__band.is-visible .presenca__line--destaque {
+    animation: presenca-destaque 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) 0.35s backwards;
+  }
+
+  .presenca__band.is-visible .presenca__cta {
+    animation: presenca-sobe 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.6s backwards;
+  }
+}
+
+@keyframes presenca-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(calc(40 * var(--u)));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes presenca-destaque {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Desktop: "+40 lojas" e mapa lado a lado e mais ao centro; faixa verde maior
+   com a frase e o botão centralizados */
 @media (min-width: 1024px) {
   .presenca__top-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
+    justify-content: center;
     align-items: end;
-    gap: calc(48 * var(--u));
+    column-gap: calc(72 * var(--u));
     width: var(--container);
     height: auto;
-    padding-top: calc(40 * var(--u));
+    padding-top: calc(48 * var(--u));
   }
 
-  .presenca__somos {
+  .presenca__somos-graphic {
     position: relative;
-    width: calc(460 * var(--u));
-    height: calc(300.5 * var(--u));
-    margin-bottom: calc(48 * var(--u));
+    top: auto;
+    left: auto;
+    width: auto;
+    margin-bottom: calc(64 * var(--u));
+  }
+
+  .presenca__somos-label {
+    font-size: calc(46 * var(--u));
+    letter-spacing: 0.18em;
+  }
+
+  .presenca__somos-number {
+    font-size: calc(175 * var(--u));
+    line-height: 0.88;
+    margin: calc(-8 * var(--u)) 0;
+  }
+
+  .presenca__somos-sublabel {
+    font-size: calc(36 * var(--u));
+    letter-spacing: 0.04em;
   }
 
   .presenca__mapa {
     position: relative;
     top: auto;
     left: auto;
-    justify-self: center;
     width: calc(428 * var(--u));
     height: calc(400 * var(--u));
     margin-bottom: calc(-150 * var(--u));
   }
 
+  /* O mapa invade 150px da faixa; o conteúdo começa abaixo dele */
   .presenca__band-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: calc(48 * var(--u));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: var(--container);
     height: auto;
-    padding: calc(120 * var(--u)) 0 calc(96 * var(--u));
+    min-height: calc(640 * var(--u));
+    padding: calc(210 * var(--u)) 0 calc(150 * var(--u));
   }
 
   .presenca__selo {
@@ -132,16 +254,31 @@
   }
 
   .presenca__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-left: 0;
+    text-align: center;
   }
 
   .presenca__title {
-    font-size: calc(60 * var(--u));
-    line-height: calc(62 * var(--u));
+    font-size: calc(84 * var(--u));
+    line-height: calc(88 * var(--u));
   }
 
   .presenca__cta {
-    margin-top: calc(28 * var(--u));
+    justify-content: center;
+    gap: calc(12 * var(--u));
+    width: calc(560 * var(--u));
+    height: calc(76 * var(--u));
+    margin-top: calc(40 * var(--u));
+    padding: 0 calc(16 * var(--u));
+    font-size: calc(24 * var(--u));
+  }
+
+  .presenca__cta.cta--white .cta__icon {
+    width: calc(52 * var(--u));
+    height: calc(52 * var(--u));
   }
 
   .presenca__sacola {

@@ -39,8 +39,8 @@
 }
 
 .hero__media {
-  width: calc(409 * var(--u));
-  height: calc(261 * var(--u));
+  width: calc(470 * var(--u));
+  height: calc(300 * var(--u));
   margin-top: calc(-13 * var(--u));
   transform: translateX(calc(2.5 * var(--u)));
   pointer-events: none;
@@ -52,7 +52,7 @@
   object-fit: cover;
 }
 
-/* Desktop: texto à esquerda, loja à direita */
+/* Desktop: texto à esquerda, loja à direita (imagem +15% maior sem cobrir o texto) */
 @media (min-width: 1024px) {
   .hero {
     background: linear-gradient(var(--green) calc(100% - 120 * var(--u)), var(--white) 0);
@@ -61,7 +61,7 @@
   .hero__inner {
     flex-direction: row;
     align-items: flex-end;
-    gap: calc(48 * var(--u));
+    gap: calc(36 * var(--u));
     width: var(--container);
     padding-top: calc(56 * var(--u));
   }
@@ -70,6 +70,7 @@
     flex: 1 1 0;
     align-items: flex-start;
     margin-bottom: calc(176 * var(--u));
+    z-index: 2;
   }
 
   .hero__icons {
@@ -91,11 +92,14 @@
   }
 
   .hero__media {
-    flex: 1.15 1 0;
+    flex: 1.35 1 0;
     width: auto;
     height: auto;
     aspect-ratio: 409 / 261;
     margin: 0;
-    transform: none;
+    transform: scale(1.15);
+    transform-origin: bottom right;
+    z-index: 1;
   }
 }
+

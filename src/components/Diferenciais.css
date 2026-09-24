@@ -1,131 +1,264 @@
-/* "Principais diferenciais" — itens dispostos em arco ao redor da foto circular */
-.dif__inner {
-  width: var(--col);
-  margin-inline: auto;
-  padding: calc(31 * var(--u)) 0 calc(41 * var(--u));
+/* Card: Principais Diferenciais */
+.dif-card {
+  background: #f8f9fa;
+  border-radius: calc(28 * var(--u));
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: calc(32 * var(--u)) calc(20 * var(--u));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.dif__title {
-  color: var(--graphite);
-  font-size: calc(41 * var(--u));
-  line-height: calc(36 * var(--u));
+/* Header */
+.dif-card__header {
   text-align: center;
+  margin-bottom: calc(20 * var(--u));
 }
 
-.dif__title > span {
-  display: block;
+.dif-card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.dif__title-light {
-  font-size: calc(33 * var(--u));
+.dif-card__title-light {
+  color: var(--black);
+  font-size: calc(28 * var(--u));
+  line-height: 1.1;
+  letter-spacing: 0.02em;
 }
 
-.dif__bar {
-  width: calc(286 * var(--u));
-  height: calc(15 * var(--u));
-  margin: calc(1 * var(--u)) auto 0;
+.dif-card__bar {
+  width: calc(200 * var(--u));
+  height: calc(7 * var(--u));
   background: var(--green-accent);
+  margin-top: calc(2 * var(--u));
+  margin-bottom: calc(4 * var(--u));
+  border-radius: 4px;
 }
 
-/* Palco de 440x335 com coordenadas absolutas do Figma */
-.dif__stage {
-  --stage-x: 0;
-  position: relative;
-  width: calc(440 * var(--u));
-  height: calc(335 * var(--u));
-  margin-top: calc(31 * var(--u));
+.dif-card__title-bold {
+  color: var(--black);
+  font-size: calc(36 * var(--u));
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.01em;
 }
 
-.dif__photo {
-  position: absolute;
-  top: 0;
-  left: calc((var(--stage-x) - 143) * var(--u));
-  width: calc(353 * var(--u));
-  height: calc(353 * var(--u));
+/* Body: Store photo + 5-item List */
+.dif-card__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(16 * var(--u));
+  margin-bottom: calc(24 * var(--u));
+}
+
+/* A foto aumenta proporcionalmente até atingir a altura dos ícones */
+.dif-card__photo-container {
+  flex-shrink: 0;
+  width: calc(180 * var(--u));
+  height: calc(310 * var(--u));
   border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* <picture> não interfere no tamanho da foto */
+.dif-card__photo-container picture {
+  display: contents;
+}
+
+.dif-card__photo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+.dif-card__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: calc(12 * var(--u));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dif-card__item {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+}
+
+.dif-card__icon-box {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(48 * var(--u));
+  height: calc(48 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dif-card__icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dif-card__truck {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(30 * var(--u));
+  height: auto;
   pointer-events: none;
 }
 
-.dif__item {
-  position: absolute;
-  top: calc(var(--y) * var(--u));
-  left: calc((var(--stage-x) + var(--x)) * var(--u));
-}
-
-.dif__icon {
-  width: calc(65 * var(--u));
-  height: calc(65 * var(--u));
-}
-
-.dif__truck {
-  position: absolute;
-  top: calc(18 * var(--u));
-  left: calc(10 * var(--u));
-  width: calc(44 * var(--u));
-  height: calc(28 * var(--u));
-}
-
-.dif__label {
-  position: absolute;
-  top: calc(var(--ty) * var(--u));
-  left: calc(74 * var(--u));
+.dif-card__label {
   color: var(--black);
-  font-size: calc(20 * var(--u));
-  line-height: calc(24 * var(--u));
-  white-space: nowrap;
+  font-size: calc(15 * var(--u));
+  line-height: 1.15;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.dif__cta {
-  margin: calc(46 * var(--u)) 0 0 calc(26 * var(--u));
+/* Footer */
+.dif-card__footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-/* Desktop: título + CTA à esquerda, arco completo à direita */
+.dif-card__cta {
+  width: 100%;
+  max-width: calc(360 * var(--u));
+}
+
+/* Desktop (organização do Figma "Desktop - 1"): card na proporção 649x852,
+   título centralizado com barra verde abaixo, foto circular cortada pela borda
+   esquerda e itens em arco. --c = 1px do Figma, proporcional à largura do card. */
 @media (min-width: 1024px) {
-  .dif__inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      'header stage'
-      'cta stage';
-    align-content: center;
-    column-gap: calc(48 * var(--u));
-    width: var(--container);
-    padding: calc(96 * var(--u)) 0;
+  .dif-card {
+    position: relative;
+    display: block;
+    container-type: inline-size;
+    aspect-ratio: 649 / 852;
+    padding: 0;
+    border: 0;
+    border-radius: calc(35 * var(--u));
+    background: #f8f8f8;
+    box-shadow: 1px 1px 20px 4px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
   }
 
-  .dif__header {
-    grid-area: header;
-    align-self: end;
+  .dif-card__header {
+    position: absolute;
+    top: calc(61 * var(--c));
+    left: 0;
+    right: 0;
+    margin: 0;
   }
 
-  .dif__title {
-    font-size: calc(60 * var(--u));
-    line-height: calc(56 * var(--u));
-    text-align: left;
+  .dif-card__title-light {
+    order: 1;
+    color: var(--graphite);
+    font-size: calc(45 * var(--c));
+    line-height: calc(46 * var(--c));
+    letter-spacing: 0;
   }
 
-  .dif__title-light {
-    font-size: calc(48 * var(--u));
+  .dif-card__title-bold {
+    order: 2;
+    color: var(--graphite);
+    font-size: calc(53 * var(--c));
+    line-height: calc(46 * var(--c));
+    letter-spacing: 0;
   }
 
-  .dif__bar {
-    width: calc(340 * var(--u));
-    height: calc(18 * var(--u));
-    margin: calc(6 * var(--u)) 0 0;
+  /* No desktop a barra verde fica abaixo do título */
+  .dif-card__bar {
+    order: 3;
+    width: calc(382 * var(--c));
+    height: calc(17 * var(--c));
+    margin: calc(-1 * var(--c)) 0 0;
+    border-radius: 0;
   }
 
-  /* Mostra a foto inteira: o palco ganha 143px à esquerda */
-  .dif__stage {
-    --stage-x: 143;
-    grid-area: stage;
-    width: calc(583 * var(--u));
-    margin-top: 0;
+  .dif-card__body {
+    display: block;
+    margin: 0;
   }
 
-  .dif__cta {
-    grid-area: cta;
-    align-self: start;
-    margin: calc(40 * var(--u)) 0 0;
+  .dif-card__photo-container {
+    position: absolute;
+    top: calc(188 * var(--c));
+    left: calc(-145 * var(--c));
+    width: calc(480 * var(--c));
+    height: calc(480 * var(--c));
+    box-shadow: none;
+  }
+
+  .dif-card__list {
+    display: block;
+  }
+
+  .dif-card__item {
+    position: absolute;
+    display: block;
+    left: calc(var(--x) * var(--c));
+    top: calc(var(--y) * var(--c));
+  }
+
+  /* Posição de cada ícone no arco e deslocamento vertical do texto (Figma) */
+  .dif-card__item:nth-child(1) { --x: 203.53; --y: 219.2; --ty: 3.56; }
+  .dif-card__item:nth-child(2) { --x: 257.55; --y: 295.33; --ty: 12.8; }
+  .dif-card__item:nth-child(3) { --x: 290.78; --y: 387.46; --ty: 0; }
+  .dif-card__item:nth-child(4) { --x: 282.84; --y: 477.27; --ty: 10.68; }
+  .dif-card__item:nth-child(5) { --x: 225.82; --y: 561.59; --ty: 10.68; }
+
+  .dif-card__icon-box {
+    width: calc(77.13 * var(--c));
+    height: calc(77.13 * var(--c));
+  }
+
+  .dif-card__truck {
+    width: calc(52.21 * var(--c));
+  }
+
+  .dif-card__label {
+    position: absolute;
+    top: calc(var(--ty) * var(--c));
+    left: calc(87.81 * var(--c));
+    font-size: calc(25 * var(--c));
+    line-height: calc(24 * var(--c));
+    white-space: nowrap;
+  }
+
+  .dif-card__footer {
+    position: absolute;
+    top: calc(703 * var(--c));
+    left: 0;
+    right: 0;
+  }
+
+  .dif-card__cta {
+    gap: calc(10 * var(--c));
+    width: calc(390 * var(--c));
+    max-width: none;
+    height: calc(62 * var(--c));
+    padding-left: calc(15 * var(--c));
+    font-size: calc(17 * var(--c));
+  }
+
+  .dif-card__cta.cta--green .cta__icon {
+    width: calc(44 * var(--c));
+    height: calc(44 * var(--c));
   }
 }

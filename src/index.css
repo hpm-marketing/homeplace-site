@@ -149,6 +149,40 @@ button {
   border: 0;
 }
 
+/* Container dos Cards em Grade */
+.features-section {
+  width: 100%;
+  padding: calc(32 * var(--u)) 0;
+}
+
+.features-cards-container {
+  width: var(--col);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(32 * var(--u));
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* 1px do Figma dentro de um card (649px de largura no Figma) */
+    --c: calc(100cqw / 649);
+  }
+
+  /* Os totens do card de tecnologia passam da base: sobra espaço embaixo */
+  .features-section {
+    padding: calc(80 * var(--u)) 0 calc(120 * var(--u));
+  }
+
+  .features-cards-container {
+    width: var(--container);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: calc(40 * var(--u));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
