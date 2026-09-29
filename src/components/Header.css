@@ -38,22 +38,21 @@
   height: calc(24 * var(--u));
 }
 
-/* O PNG do logo tem 316x178 e transborda a barra de 96px (como no Figma) */
+/* O SVG do logo mantém proporção e é redimensionado de forma fluida */
 .header__logo {
   position: relative;
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
-  width: calc(316 * var(--u));
-  height: 100%;
+  width: clamp(120px, 24vw, 220px);
+  height: auto;
 }
 
 .header__logo img {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: calc(316 * var(--u));
-  height: calc(178 * var(--u));
-  object-fit: cover;
-  transform: translateY(-50%);
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   pointer-events: none;
 }
 

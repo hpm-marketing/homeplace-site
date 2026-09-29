@@ -45,27 +45,150 @@
   margin-top: calc(26 * var(--u));
 }
 
-/* Selo com a lata: 146x146 girado 10.98°, sai da seção como no Figma */
-.parceiro__selo {
+.parceiro__media-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.parceiro__video-stage {
+  position: relative;
+  width: min(100%, calc(460 * var(--u)));
+  height: calc(300 * var(--u));
+  margin: calc(26 * var(--u)) auto 0;
+}
+
+.parceiro__stage-nav {
   position: absolute;
-  top: calc(299 * var(--u));
-  left: calc(312 * var(--u));
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(171.219 * var(--u));
-  height: calc(170.969 * var(--u));
-  pointer-events: none;
+  width: calc(36 * var(--u));
+  height: calc(36 * var(--u));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--white);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.parceiro__selo img {
-  width: calc(146.129 * var(--u));
-  height: calc(145.813 * var(--u));
+.parceiro__stage-nav:hover {
+  background: rgba(0, 0, 0, 0.85);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.parceiro__stage-nav--prev {
+  left: calc(-12 * var(--u));
+}
+
+.parceiro__stage-nav--next {
+  right: calc(-12 * var(--u));
+}
+
+.parceiro__video-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(62vw, calc(220 * var(--u)));
+  height: calc(300 * var(--u));
+  overflow: hidden;
+  border-radius: calc(22 * var(--u));
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    filter 0.45s ease;
+  filter: saturate(0.7) brightness(0.75);
+}
+
+.parceiro__video-card.is-active {
+  filter: none;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.parceiro__audio-overlay-btn {
+  position: absolute;
+  top: calc(12 * var(--u));
+  right: calc(12 * var(--u));
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  padding: calc(6 * var(--u)) calc(12 * var(--u));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: calc(20 * var(--u));
+  background: rgba(0, 0, 0, 0.65);
+  color: var(--white);
+  font-family: inherit;
+  font-size: calc(12 * var(--u));
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.parceiro__audio-overlay-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.parceiro__audio-overlay-btn.is-active {
+  background: var(--black);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.parceiro__video {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transform: rotate(10.98deg);
+  background: #000;
 }
 
-/* Desktop: texto à esquerda, selo grande à direita */
+.parceiro__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(8 * var(--u));
+  margin-top: calc(16 * var(--u));
+}
+
+.parceiro__dot {
+  width: calc(10 * var(--u));
+  height: calc(10 * var(--u));
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    width 0.3s ease,
+    border-radius 0.3s ease;
+}
+
+.parceiro__dot.is-active {
+  width: calc(24 * var(--u));
+  border-radius: calc(12 * var(--u));
+  background: var(--white);
+}
+
+/* Desktop: texto à esquerda, carrossel à direita */
 @media (min-width: 1024px) {
   .parceiro__inner {
     display: grid;
@@ -103,17 +226,24 @@
     margin-top: calc(32 * var(--u));
   }
 
-  .parceiro__selo {
-    position: relative;
-    top: auto;
-    left: auto;
+  .parceiro__video-stage {
+    width: min(100%, calc(520 * var(--u)));
+    height: calc(360 * var(--u));
+    margin: 0;
     justify-self: center;
-    width: calc(380 * var(--u));
-    height: calc(380 * var(--u));
   }
 
-  .parceiro__selo img {
-    width: calc(320 * var(--u));
-    height: calc(319.3 * var(--u));
+  .parceiro__video-card {
+    width: min(30vw, calc(270 * var(--u)));
+    height: calc(390 * var(--u));
+  }
+
+  .parceiro__stage-nav--prev {
+    left: calc(-20 * var(--u));
+  }
+
+  .parceiro__stage-nav--next {
+    right: calc(-20 * var(--u));
   }
 }
+

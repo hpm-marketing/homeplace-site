@@ -1,4 +1,4 @@
-import logoFooter from '../assets/logo-footer.png'
+import logoFooter from '../assets/logo-footer.svg'
 import instagram from '../assets/instagram.svg'
 import { INSTAGRAM_URL, SAC_URL } from '../constants'
 import './Footer.css'
@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__inner">
         <a className="footer__logo" href="#inicio" aria-label="Homeplace Market — voltar ao topo">
-          <img src={logoFooter} alt="Homeplace Market" width={158} height={79} />
+          <img src={logoFooter.src} alt="Homeplace Market" width={158} height={79} />
         </a>
 
         <a className="footer__sac" href={SAC_URL}>
@@ -17,7 +17,7 @@ export default function Footer() {
         </a>
 
         <a className="footer__insta" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
-          <img src={instagram} alt="" width={20} height={20} />
+          <img src={instagram.src} alt="" width={20} height={20} />
           <span>@homeplacemarket</span>
         </a>
 

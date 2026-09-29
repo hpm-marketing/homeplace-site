@@ -15,23 +15,23 @@ import marcaSolar from '../assets/marca-solar.png'
 import './Marcas.css'
 
 const row1Logos = [
-  { src: marcaAmbev, alt: 'Ambev', name: 'ambev' },
-  { src: marcaBaly, alt: 'Baly Brasil', name: 'baly' },
-  { src: marcaFloresta, alt: 'Floresta', name: 'floresta' },
-  { src: marcaFrosty, alt: 'Frosty', name: 'frosty' },
-  { src: marcaHeineken, alt: 'Heineken', name: 'heineken' },
-  { src: marcaJa, alt: 'J&A', name: 'ja' },
-  { src: marcaNestle, alt: 'Nestlé', name: 'nestle' },
+  { src: marcaAmbev.src, alt: 'Ambev', name: 'ambev' },
+  { src: marcaBaly.src, alt: 'Baly Brasil', name: 'baly' },
+  { src: marcaFloresta.src, alt: 'Floresta', name: 'floresta' },
+  { src: marcaFrosty.src, alt: 'Frosty', name: 'frosty' },
+  { src: marcaHeineken.src, alt: 'Heineken', name: 'heineken' },
+  { src: marcaJa.src, alt: 'J&A', name: 'ja' },
+  { src: marcaNestle.src, alt: 'Nestlé', name: 'nestle' },
 ]
 
 const row2Logos = [
-  { src: marcaNsFatima, alt: 'Nossa Senhora de Fátima', name: 'nsfatima' },
-  { src: marcaPanevita, alt: 'Panevita', name: 'panevita' },
-  { src: marcaPepsico, alt: 'PepsiCo', name: 'pepsico' },
-  { src: marcaPurina, alt: 'Purina', name: 'purina' },
-  { src: marcaRoma, alt: 'Roma', name: 'roma' },
-  { src: marcaSantaclara, alt: 'Santa Clara', name: 'santaclara' },
-  { src: marcaSolar, alt: 'Solar Coca-Cola', name: 'solar' },
+  { src: marcaNsFatima.src, alt: 'Nossa Senhora de Fátima', name: 'nsfatima' },
+  { src: marcaPanevita.src, alt: 'Panevita', name: 'panevita' },
+  { src: marcaPepsico.src, alt: 'PepsiCo', name: 'pepsico' },
+  { src: marcaPurina.src, alt: 'Purina', name: 'purina' },
+  { src: marcaRoma.src, alt: 'Roma', name: 'roma' },
+  { src: marcaSantaclara.src, alt: 'Santa Clara', name: 'santaclara' },
+  { src: marcaSolar.src, alt: 'Solar Coca-Cola', name: 'solar' },
 ]
 
 export default function Marcas() {

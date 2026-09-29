@@ -55,7 +55,7 @@
 
 .faq__plus {
   width: calc(13 * var(--u));
-  color: var(--faq-icon);
+  color: var(--green);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: calc(18 * var(--u));

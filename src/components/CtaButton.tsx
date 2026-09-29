@@ -25,9 +25,9 @@ export default function CtaButton({
       rel="noopener noreferrer"
     >
       {variant === 'white' ? (
-        <img className="cta__icon" src={whatsappIcon} alt="" width={40} height={40} />
+        <img className="cta__icon" src={whatsappIcon.src} alt="" width={40} height={40} />
       ) : (
-        <img className="cta__icon" src={whatsappWhiteIcon} alt="" width={37} height={37} />
+        <img className="cta__icon" src={whatsappWhiteIcon.src} alt="" width={37} height={37} />
       )}
       <span className="cta__label">{label}</span>
     </a>

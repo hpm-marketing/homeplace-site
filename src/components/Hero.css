@@ -1,6 +1,13 @@
 /* Hero — Figma: fundo #00cf19 até y=546; a loja (409x261) avança 75px no branco */
 .hero {
-  background: linear-gradient(var(--green) calc(100% - 75 * var(--u)), var(--white) 0);
+  background: linear-gradient(
+    180deg,
+    var(--green) 0%,
+    var(--green) calc(100% - 75px),
+    #ffffff calc(100% - 75px),
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
 }
 
 .hero__inner {
@@ -55,7 +62,14 @@
 /* Desktop: texto à esquerda, loja à direita (imagem +15% maior sem cobrir o texto) */
 @media (min-width: 1024px) {
   .hero {
-    background: linear-gradient(var(--green) calc(100% - 120 * var(--u)), var(--white) 0);
+    background: linear-gradient(
+      180deg,
+      var(--green) 0%,
+      var(--green) calc(100% - 120px),
+      #ffffff calc(100% - 120px),
+      #ffffff 100%
+    );
+    background-repeat: no-repeat;
   }
 
   .hero__inner {

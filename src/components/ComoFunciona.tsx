@@ -8,7 +8,7 @@ type Passo = { icon: string; title: string; text: ReactNode }
 
 const PASSOS: Passo[] = [
   {
-    icon: iconeEscolha,
+    icon: iconeEscolha.src,
     title: 'Escolha',
     text: (
       <>
@@ -19,7 +19,7 @@ const PASSOS: Passo[] = [
     ),
   },
   {
-    icon: iconeEscaneie,
+    icon: iconeEscaneie.src,
     title: 'Escaneie',
     text: (
       <>
@@ -30,7 +30,7 @@ const PASSOS: Passo[] = [
     ),
   },
   {
-    icon: iconePague,
+    icon: iconePague.src,
     title: 'Pague',
     text: (
       <>

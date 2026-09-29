@@ -123,10 +123,13 @@
 
 .dif-card__label {
   color: var(--black);
-  font-size: calc(15 * var(--u));
-  line-height: 1.15;
+  max-width: calc(200 * var(--u));
+  font-size: calc(16 * var(--u));
+  line-height: 1.2;
   font-weight: 900;
   text-transform: uppercase;
+  white-space: normal;
+  overflow: visible;
 }
 
 /* Footer */
@@ -236,9 +239,12 @@
     position: absolute;
     top: calc(var(--ty) * var(--c));
     left: calc(87.81 * var(--c));
-    font-size: calc(25 * var(--c));
-    line-height: calc(24 * var(--c));
-    white-space: nowrap;
+    width: calc(190 * var(--c));
+    max-width: calc(190 * var(--c));
+    font-size: calc(17 * var(--c));
+    line-height: calc(20 * var(--c));
+    white-space: normal;
+    overflow: visible;
   }
 
   .dif-card__footer {
@@ -353,9 +359,12 @@
     position: absolute;
     top: calc(var(--ty) * var(--u));
     left: calc(74 * var(--u));
-    font-size: calc(20 * var(--u));
-    line-height: calc(24 * var(--u));
-    white-space: nowrap;
+    width: calc(150 * var(--u));
+    max-width: calc(150 * var(--u));
+    font-size: calc(15 * var(--u));
+    line-height: calc(18 * var(--u));
+    white-space: normal;
+    overflow: visible;
   }
 
   .dif-card__footer {

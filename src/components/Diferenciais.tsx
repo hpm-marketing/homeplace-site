@@ -12,7 +12,7 @@ import './Diferenciais.css'
 
 const DIFERENCIAIS = [
   {
-    icon: iconeMonitoramento,
+    icon: iconeMonitoramento.src,
     label: (
       <>
         MONITORAMENTO
@@ -22,17 +22,17 @@ const DIFERENCIAIS = [
     ),
   },
   {
-    icon: iconeFranqueados,
+    icon: iconeFranqueados.src,
     label: (
       <>
-        NÃO SOMOS
+        OPERAÇÃO PRÓPRIA,
         <br />
-        FRANQUEADOS
+        NÃO SOMOS FRANQUEADOS
       </>
     ),
   },
   {
-    icon: iconeMix,
+    icon: iconeMix.src,
     label: (
       <>
         MAIOR MIX DE
@@ -44,7 +44,7 @@ const DIFERENCIAIS = [
     ),
   },
   {
-    icon: iconeLogistica,
+    icon: iconeLogistica.src,
     label: (
       <>
         EQUIPE DE
@@ -52,10 +52,10 @@ const DIFERENCIAIS = [
         LOGÍSTICA
       </>
     ),
-    extra: <img className="dif-card__truck" src={caminhao} alt="" width={44} height={28} />,
+    extra: <img className="dif-card__truck" src={caminhao.src} alt="" width={44} height={28} />,
   },
   {
-    icon: iconeDistribuicao,
+    icon: iconeDistribuicao.src,
     label: (
       <>
         CENTRO DE
@@ -80,8 +80,8 @@ export default function Diferenciais() {
       <div className="dif-card__body">
         <div className="dif-card__photo-container">
           <picture>
-            <source media="(min-width: 1024px)" srcSet={lojaInteriorDesktop} />
-            <img className="dif-card__photo" src={lojaInterior} alt="Interior de uma loja Homeplace Market" />
+            <source media="(min-width: 1024px)" srcSet={lojaInteriorDesktop.src} />
+            <img className="dif-card__photo" src={lojaInterior.src} alt="Interior de uma loja Homeplace Market" />
           </picture>
         </div>
         <ul className="dif-card__list">

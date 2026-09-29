@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect, useState } from 'react'
-import logo from '../assets/logo-header.png'
+import logo from '../assets/logo-header.svg'
 import menuIcon from '../assets/menu.svg'
 import { CONSULTOR_URL, NAV_LINKS } from '../constants'
 import './Header.css'
@@ -27,11 +29,11 @@ export default function Header() {
           aria-controls="menu-principal"
           onClick={() => setOpen((v) => !v)}
         >
-          <img src={menuIcon} alt="" width={24} height={24} />
+          <img src={menuIcon.src} alt="" width={24} height={24} />
         </button>
 
         <a className="header__logo" href="#inicio" aria-label="Homeplace Market — início" onClick={close}>
-          <img src={logo} alt="Homeplace Market" width={316} height={178} />
+          <img src={logo.src} alt="Homeplace Market" />
         </a>
 
         <nav id="menu-principal" className="header__nav" aria-label="Menu principal">

@@ -1,0 +1,79 @@
+import type { Metadata, Viewport } from 'next'
+import { Carlito, Inter } from 'next/font/google'
+import lojaContainer from '../assets/loja-container.png'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TITLE, SITE_URL } from '../constants'
+import '../index.css'
+
+/* Fontes baixadas no build e servidas pelo próprio site (sem depender do Google Fonts) */
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '900'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const carlito = Carlito({
+  subsets: ['latin'],
+  weight: '700',
+  display: 'swap',
+  variable: '--font-carlito',
+})
+
+/* `lojaContainer.src` já inclui o basePath; somamos só a origem para a URL absoluta */
+const OG_IMAGE = `${SITE_ORIGIN}${lojaContainer.src}`
+
+export const metadata: Metadata = {
+  metadataBase: new URL(`${SITE_URL}/`),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: [
+    'minimercado autônomo',
+    'mercado autônomo',
+    'mercado em condomínio',
+    'minimercado para empresas',
+    'loja autônoma 24h',
+    'Homeplace Market',
+    'Fortaleza',
+    'Ceará',
+  ],
+  alternates: { canonical: `${SITE_URL}/` },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: lojaContainer.width,
+        height: lojaContainer.height,
+        alt: 'Loja autônoma Homeplace Market',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  robots: { index: true, follow: true },
+  formatDetection: { telephone: false },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#00cf19',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="pt-BR" className={`${inter.variable} ${carlito.variable}`}>
+      <body>{children}</body>
+    </html>
+  )
+}

@@ -23,7 +23,7 @@ export default function Tecnologia() {
       <div className="tec-card__image-container">
         <img
           className="tec-card__totens"
-          src={totens}
+          src={totens.src}
           alt="Totens de autoatendimento Homeplace Market"
         />
       </div>

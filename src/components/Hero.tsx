@@ -1,4 +1,4 @@
-import iconesProdutos from '../assets/icones-produtos.png'
+import iconesProdutos from '../assets/icones-produtos.svg'
 import lojaContainer from '../assets/loja-container.png'
 import { CONSULTOR_URL } from '../constants'
 import CtaButton from './CtaButton'
@@ -9,7 +9,7 @@ export default function Hero() {
     <section id="inicio" className="hero">
       <div className="hero__inner">
         <div className="hero__content">
-          <img className="hero__icons" src={iconesProdutos} alt="" width={202} height={28} />
+          <img className="hero__icons" src={iconesProdutos.src} alt="" width={202} height={28} />
           <h1 className="hero__title t-black">
             o minimercado
             <br />
@@ -26,7 +26,7 @@ export default function Hero() {
 
         <div className="hero__media">
           <img
-            src={lojaContainer}
+            src={lojaContainer.src}
             alt="Loja autônoma Homeplace Market em container, com prateleiras abastecidas"
             width={409}
             height={261}

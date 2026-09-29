@@ -1,15 +1,14 @@
 # Homeplace Market — site
 
-Landing page do Homeplace Market em React + TypeScript (Vite), feita a partir do
+Landing page do Homeplace Market em Next.js (React + TypeScript), feita a partir do
 layout mobile do Figma **SITE-HOMEPLACE** e adaptada para todas as larguras de tela.
 
 ## Rodando
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # gera a versão de produção em dist/
-npm run preview  # serve o build localmente
+npm run dev      # http://localhost:3000
+npm run build    # gera o site estático (HTML pronto) em out/
 ```
 
 ### Terminal no VS Code (Windows)
@@ -29,22 +28,41 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ## Publicação (GitHub Pages)
 
 Cada push na `main` roda `.github/workflows/deploy.yml`, que faz o build e
-publica a pasta `dist/` em https://hpm-marketing.github.io/homeplace-site/.
+publica a pasta `out/` em https://hpm-marketing.github.io/homeplace-site/.
 
 - Em **Settings → Pages → Build and deployment → Source**, a opção precisa ser
   **GitHub Actions** (com "Deploy from a branch" o Pages publica o código-fonte
   e a página fica em branco).
-- `base: '/homeplace-site/'` em `vite.config.ts` deve ter o mesmo nome do
-  repositório. Se o repositório for renomeado, atualize esse valor.
+- `BASE_PATH_PUBLICADO` em `next.config.ts` deve ter o mesmo nome do repositório
+  (`/homeplace-site`). Se o repositório for renomeado ou o site passar a usar
+  domínio próprio, atualize esse valor e o `SITE_ORIGIN` em `src/constants.ts`.
+
+## SEO
+
+O site é gerado como HTML estático (`output: 'export'`): todo o conteúdo já
+vem no HTML, que é o que o Google lê. Além disso:
+
+- `src/app/layout.tsx`: título, descrição, palavras-chave, canonical,
+  Open Graph (WhatsApp/Facebook/LinkedIn) e Twitter card.
+- `src/app/page.tsx`: dados estruturados schema.org (Organization, WebSite e
+  FAQPage, a partir de `FAQ_PERGUNTAS` em `src/constants.ts`).
+- `src/app/sitemap.ts` e `src/app/robots.ts`: geram `sitemap.xml` e `robots.txt`.
+- `src/app/icon.svg`: favicon.
+- Fontes (Inter e Carlito) via `next/font`, servidas pelo próprio site.
 
 ## Estrutura
 
 ```
 src/
-  App.tsx              # ordem das seções
-  constants.ts         # links de WhatsApp, Instagram, SAC e menu
+  app/
+    layout.tsx         # <html>, fontes e metadados de SEO
+    page.tsx           # ordem das seções + dados estruturados
+    sitemap.ts / robots.ts / icon.svg
+  constants.ts         # URL do site, textos de SEO, FAQ, links de WhatsApp, Instagram, SAC e menu
   index.css            # tokens (cores, fontes) e a unidade de escala --u
   assets/              # imagens e SVGs exportados do Figma
+public/
+  videos/              # vídeos de depoimentos (servidos como arquivos estáticos)
   components/
     Header             # barra fixa; menu hambúrguer no mobile, links no desktop
     Hero               # "O minimercado ideal..."
