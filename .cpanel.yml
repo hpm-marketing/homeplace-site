@@ -1,0 +1,19 @@
+---
+# Publicação pelo Git Version Control do cPanel (Pull or Deploy → Deploy HEAD Commit).
+#
+# O site é gerado no computador com `npm run build:cpanel`, que salva o
+# resultado na pasta deploy/ (versionada no git). Aqui o servidor só copia
+# esses arquivos prontos para o public_html — não precisa de Node.js.
+#
+# $HOME é a pasta da conta no servidor (ex.: /home/usuario).
+# Se o site ficar em outra pasta (subdomínio/addon domain), troque DEPLOYPATH.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    # Remove os arquivos de build antigos (os nomes têm hash e mudam a cada build)
+    - /bin/rm -rf $DEPLOYPATH/_next
+    # Copia o site (inclui arquivos ocultos, como o .htaccess)
+    - /bin/cp -R deploy/. $DEPLOYPATH/
+    # Vídeos dos depoimentos
+    - /bin/mkdir -p $DEPLOYPATH/videos
+    - /bin/cp -R public/videos/. $DEPLOYPATH/videos/

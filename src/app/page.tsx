@@ -17,8 +17,8 @@ import {
   INSTAGRAM_URL,
   SITE_DESCRIPTION,
   SITE_NAME,
-  SITE_ORIGIN,
   SITE_URL,
+  urlPublica,
 } from '../constants'
 
 /* Dados estruturados (schema.org) lidos pelo Google: empresa, site e perguntas frequentes */
@@ -30,8 +30,8 @@ const dadosEstruturados = {
       '@id': `${SITE_URL}/#organizacao`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      logo: `${SITE_ORIGIN}${logoHeader.src}`,
-      image: `${SITE_ORIGIN}${lojaContainer.src}`,
+      logo: urlPublica(logoHeader.src),
+      image: urlPublica(lojaContainer.src),
       description: SITE_DESCRIPTION,
       areaServed: { '@type': 'State', name: 'Ceará' },
       sameAs: [INSTAGRAM_URL],

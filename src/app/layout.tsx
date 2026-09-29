@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from 'next'
 import { Carlito, Inter } from 'next/font/google'
 import lojaContainer from '../assets/loja-container.png'
-import { SITE_DESCRIPTION, SITE_NAME, SITE_ORIGIN, SITE_TITLE, SITE_URL } from '../constants'
+import {
+  IS_COPIA_SECUNDARIA,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+  urlPublica,
+} from '../constants'
 import '../index.css'
 
 /* Fontes baixadas no build e servidas pelo próprio site (sem depender do Google Fonts) */
@@ -19,8 +26,8 @@ const carlito = Carlito({
   variable: '--font-carlito',
 })
 
-/* `lojaContainer.src` já inclui o basePath; somamos só a origem para a URL absoluta */
-const OG_IMAGE = `${SITE_ORIGIN}${lojaContainer.src}`
+/* Imagem de compartilhamento (WhatsApp, Facebook, LinkedIn) sempre no domínio oficial */
+const OG_IMAGE = urlPublica(lojaContainer.src)
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${SITE_URL}/`),
@@ -60,7 +67,8 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true },
+  /* A cópia do GitHub Pages não entra no Google (evita conteúdo duplicado) */
+  robots: IS_COPIA_SECUNDARIA ? { index: false, follow: false } : { index: true, follow: true },
   formatDetection: { telephone: false },
 }
 

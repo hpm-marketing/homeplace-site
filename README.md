@@ -8,7 +8,8 @@ layout mobile do Figma **SITE-HOMEPLACE** e adaptada para todas as larguras de t
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # gera o site estático (HTML pronto) em out/
+npm run build          # gera o site estático (HTML pronto) em out/
+npm run build:cpanel   # gera o site para o cPanel na pasta deploy/
 ```
 
 ### Terminal no VS Code (Windows)
@@ -25,17 +26,41 @@ Para usar o npm também no PowerShell, rode uma vez (vale só para o seu usuári
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
-## Publicação (GitHub Pages)
+## Publicação no cPanel (site oficial: https://homeplacemarket.com.br)
 
-Cada push na `main` roda `.github/workflows/deploy.yml`, que faz o build e
-publica a pasta `out/` em https://hpm-marketing.github.io/homeplace-site/.
+O cPanel publica pelo **Git Version Control** usando o arquivo `.cpanel.yml`.
+O site é gerado no computador (a hospedagem não precisa de Node.js) e o servidor
+só copia os arquivos prontos para o `public_html`.
+
+A cada atualização:
+
+1. `npm run build:cpanel` — gera o site e salva em `deploy/`.
+2. Commit e push (a pasta `deploy/` vai junto no git).
+3. No cPanel: **Git Version Control → Manage → Pull or Deploy** →
+   **Update from Remote** e depois **Deploy HEAD Commit**.
+
+O `.cpanel.yml` apaga só a pasta `_next` antiga, copia `deploy/` (inclui o
+`.htaccess`) e os vídeos de `public/videos/` para `$HOME/public_html`. Os demais
+arquivos do `public_html` não são apagados.
+
+O `public/.htaccess` força HTTPS, redireciona `www` para o domínio sem `www`,
+define a página 404 e o cache/compressão.
+
+Configuração inicial no cPanel (uma vez): **Git Version Control → Create**,
+ative *Clone a Repository*, informe a URL do repositório no GitHub e um caminho
+fora do `public_html` (ex.: `/home/USUARIO/repositories/homeplace-site`).
+Repositório privado precisa de chave SSH cadastrada no GitHub.
+
+## Cópia no GitHub Pages
+
+Cada push na `main` também roda `.github/workflows/deploy.yml`, que gera o site
+com `BASE_PATH=/homeplace-site` e publica em
+https://hpm-marketing.github.io/homeplace-site/. Essa cópia aponta o canonical
+para o domínio oficial e tem `noindex`, para não competir com ele no Google.
 
 - Em **Settings → Pages → Build and deployment → Source**, a opção precisa ser
-  **GitHub Actions** (com "Deploy from a branch" o Pages publica o código-fonte
-  e a página fica em branco).
-- `BASE_PATH_PUBLICADO` em `next.config.ts` deve ter o mesmo nome do repositório
-  (`/homeplace-site`). Se o repositório for renomeado ou o site passar a usar
-  domínio próprio, atualize esse valor e o `SITE_ORIGIN` em `src/constants.ts`.
+  **GitHub Actions**.
+- O endereço oficial fica em `SITE_URL` (`src/constants.ts`).
 
 ## SEO
 

@@ -1,10 +1,17 @@
-/* ───────── Endereço do site publicado (usado no SEO: canonical, sitemap, Open Graph) ─────────
-   Hoje o site está no GitHub Pages em https://hpm-marketing.github.io/homeplace-site/.
-   Se passar a usar um domínio próprio (ex.: https://www.homeplacemarket.com.br),
-   troque SITE_ORIGIN pelo domínio e o BASE_PATH_PUBLICADO em next.config.ts por ''. */
-export const SITE_ORIGIN = 'https://hpm-marketing.github.io'
+/* ───────── Endereço oficial do site (usado no SEO: canonical, sitemap, Open Graph) ─────────
+   O site oficial fica no cPanel, em https://homeplacemarket.com.br/.
+   A cópia do GitHub Pages aponta o canonical para cá e não é indexada. */
+export const SITE_URL = 'https://homeplacemarket.com.br'
+
+/* Subpasta do build atual ('' no cPanel e no dev; '/homeplace-site' no GitHub Pages) */
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
-export const SITE_URL = `${SITE_ORIGIN}${BASE_PATH}`
+
+/* true no build do GitHub Pages: a cópia secundária pede para não ser indexada */
+export const IS_COPIA_SECUNDARIA = BASE_PATH !== ''
+
+/* URL absoluta no domínio oficial para um arquivo do build (ex.: `imagem.src`) */
+export const urlPublica = (caminho: string) =>
+  `${SITE_URL}${caminho.startsWith(BASE_PATH) ? caminho.slice(BASE_PATH.length) : caminho}`
 
 export const SITE_NAME = 'Homeplace Market'
 export const SITE_TITLE = 'Homeplace Market | Minimercado autônomo para condomínios e empresas'

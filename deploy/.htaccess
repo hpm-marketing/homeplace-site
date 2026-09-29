@@ -1,0 +1,47 @@
+# Homeplace Market — configuração do Apache (cPanel)
+# Este arquivo vai junto com o site para a raiz do public_html.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# Endereço único para o SEO: sempre https://homeplacemarket.com.br (sem www)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTP_HOST} ^www\.homeplacemarket\.com\.br$ [NC]
+  RewriteRule ^ https://homeplacemarket.com.br%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^homeplacemarket\.com\.br$ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://homeplacemarket.com.br%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Compressão (páginas mais leves = carregamento mais rápido)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+AddType video/mp4 .mp4
+AddType video/quicktime .mov .MOV
+AddType image/svg+xml .svg
+
+# Cache no navegador
+<IfModule mod_headers.c>
+  # Arquivos do build com hash no nome nunca mudam: cache de 1 ano
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  # HTML sempre revalidado, para o visitante ver a versão nova após cada deploy
+  <FilesMatch "\.(html|txt|xml)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType video/quicktime "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>

@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cpanel": "next build && node scripts/preparar-cpanel.mjs",
     "lint": "oxlint",
-    "typecheck": "tsc --noEmit",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -t"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.3.6",
