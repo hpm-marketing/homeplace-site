@@ -196,7 +196,7 @@ export default function Presenca() {
               <span className="presenca__line">você precisa.</span>
               <span className="presenca__line presenca__line--destaque hl-black">24h por dia</span>
             </h2>
-            <CtaButton className="presenca__cta" href={CONSULTOR_URL} label="quero falar com um consultor" />
+            <CtaButton className="presenca__cta" href={CONSULTOR_URL} label="quero falar com a Homeplace" />
           </div>
 
           <div className="presenca__galeria" role="region" aria-roledescription="carrossel" aria-label="Fotos de lojas Homeplace">

@@ -54,6 +54,26 @@
   height: calc(20 * var(--u));
 }
 
+.footer__endereco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(14 * var(--u));
+  font-size: calc(12 * var(--u));
+  line-height: calc(16 * var(--u));
+  text-align: center;
+}
+
+.footer__endereco-label {
+  font-weight: 900;
+}
+
+.footer__endereco-texto {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.footer__endereco:hover,
 .footer__sac:hover,
 .footer__insta:hover {
   color: var(--green-accent);
@@ -95,6 +115,14 @@
     justify-self: end;
     margin-top: 0;
     font-size: calc(15 * var(--u));
+  }
+
+  /* Endereço em uma linha própria, centralizado abaixo de logo/SAC/Instagram */
+  .footer__endereco {
+    grid-column: 1 / -1;
+    margin-top: calc(20 * var(--u));
+    font-size: calc(14 * var(--u));
+    line-height: calc(19 * var(--u));
   }
 
   .footer__copy {

@@ -20,7 +20,7 @@ export default function Faq() {
             className="faq__cta"
             variant="green"
             href={CONSULTOR_URL}
-            label="quero falar com um consultor"
+            label="quero falar com a Homeplace"
           />
         </div>
 

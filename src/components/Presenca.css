@@ -519,7 +519,7 @@
   }
 }
 
-/* Desktop: título | carrossel (2 cards quadrados por vez) | sacola na ponta do container */
+/* Desktop: título | carrossel (2 cards e meio por vez, indicando que há mais)| carrossel (2 cards quadrados por vez) | sacola na ponta do container */
 @media (min-width: 1024px) {
   .presenca__band-inner {
     display: grid;
@@ -558,7 +558,8 @@
   }
 
   .presenca__foto {
-    flex-basis: calc((100% - 16 * var(--u)) / 2);
+    /* 2 cards inteiros + metade do terceiro (2 espaços de 16 entre eles) */
+    flex-basis: calc((100% - 32 * var(--u)) / 2.5);
     border-radius: calc(20 * var(--u));
   }
 

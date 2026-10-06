@@ -4,6 +4,7 @@ import Presenca from '../components/Presenca'
 import ComoFunciona from '../components/ComoFunciona'
 import Diferenciais from '../components/Diferenciais'
 import Tecnologia from '../components/Tecnologia'
+import Encartes from '../components/Encartes'
 import Monitoramento from '../components/Monitoramento'
 import Marcas from '../components/Marcas'
 import Parceiro from '../components/Parceiro'
@@ -13,6 +14,7 @@ import Footer from '../components/Footer'
 import logoHeader from '../assets/logo-header.png'
 import lojaContainer from '../assets/loja-container.png'
 import {
+  ENDERECO_CD,
   FAQ_PERGUNTAS,
   INSTAGRAM_URL,
   SITE_DESCRIPTION,
@@ -34,6 +36,14 @@ const dadosEstruturados = {
       image: urlPublica(lojaContainer.src),
       description: SITE_DESCRIPTION,
       areaServed: { '@type': 'State', name: 'Ceará' },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: ENDERECO_CD.rua,
+        addressLocality: ENDERECO_CD.cidade,
+        addressRegion: ENDERECO_CD.uf,
+        postalCode: ENDERECO_CD.cep,
+        addressCountry: 'BR',
+      },
       sameAs: [INSTAGRAM_URL],
     },
     {
@@ -74,6 +84,7 @@ export default function Home() {
             <Tecnologia />
           </div>
         </section>
+        <Encartes />
         <Monitoramento />
         <Marcas />
         <Parceiro />

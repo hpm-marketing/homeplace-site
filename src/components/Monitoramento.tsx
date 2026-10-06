@@ -116,7 +116,7 @@ export default function Monitoramento() {
             className="monit__cta"
             variant="green"
             href={CONSULTOR_URL}
-            label="quero falar com um consultor"
+            label="quero falar com a Homeplace"
           />
         </div>
 

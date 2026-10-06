@@ -102,7 +102,7 @@ export default function Diferenciais() {
           className="dif-card__cta"
           variant="green"
           href={CONSULTOR_URL}
-          label="QUERO FALAR COM UM CONSULTOR"
+          label="QUERO FALAR COM A HOMEPLACE"
         />
       </div>
     </section>

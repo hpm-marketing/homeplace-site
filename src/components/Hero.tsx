@@ -1,5 +1,5 @@
 import iconesProdutos from '../assets/icones-produtos.svg'
-import lojaContainer from '../assets/loja-container.png'
+import lojaContainer from '../assets/loja-container-2.png'
 import { CONSULTOR_URL } from '../constants'
 import CtaButton from './CtaButton'
 import './Hero.css'
@@ -21,15 +21,15 @@ export default function Hero() {
               ou empresa
             </span>
           </h1>
-          <CtaButton className="hero__cta" href={CONSULTOR_URL} label="quero falar com um consultor" />
+          <CtaButton className="hero__cta" href={CONSULTOR_URL} label="quero falar com a Homeplace" />
         </div>
 
         <div className="hero__media">
           <img
             src={lojaContainer.src}
             alt="Loja autônoma Homeplace Market em container, com prateleiras abastecidas"
-            width={409}
-            height={261}
+            width={1568}
+            height={934}
           />
         </div>
       </div>

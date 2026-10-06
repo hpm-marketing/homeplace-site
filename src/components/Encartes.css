@@ -1,0 +1,281 @@
+/* "Encartes — ofertas novas toda semana": fundo claro, entre os diferenciais e o monitoramento */
+.encartes {
+  background: var(--faq-bg);
+  color: var(--black);
+}
+
+.encartes__inner {
+  display: flex;
+  flex-direction: column;
+  gap: calc(28 * var(--u));
+  width: var(--col);
+  margin-inline: auto;
+  padding: calc(40 * var(--u)) 0 calc(44 * var(--u));
+}
+
+.encartes__content {
+  padding: 0 calc(22 * var(--u));
+}
+
+.encartes__kicker {
+  color: var(--green-dark);
+  font-size: calc(16 * var(--u));
+  letter-spacing: 0.2em;
+}
+
+.encartes__title {
+  margin-top: calc(6 * var(--u));
+  font-size: calc(38 * var(--u));
+  line-height: calc(42 * var(--u));
+}
+
+.encartes__title .hl-green {
+  display: block;
+}
+
+.encartes__text {
+  margin-top: calc(14 * var(--u));
+  font-size: calc(17 * var(--u));
+  line-height: 1.35;
+  color: var(--faq-text);
+}
+
+.encartes__destaques {
+  display: grid;
+  gap: calc(10 * var(--u));
+  margin-top: calc(20 * var(--u));
+}
+
+.encartes__destaque {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--u));
+  font-size: calc(16 * var(--u));
+  line-height: 1.25;
+}
+
+.encartes__destaque svg {
+  flex: none;
+  width: calc(24 * var(--u));
+  height: calc(24 * var(--u));
+  padding: calc(4 * var(--u));
+  border-radius: 50%;
+  background: var(--green-accent);
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.encartes__cta {
+  margin-top: calc(26 * var(--u));
+}
+
+/* ───────── Carrossel em formato de stories (9:16) ───────── */
+.encartes__carrossel {
+  min-width: 0;
+}
+
+.encartes__track {
+  position: relative;
+  display: flex;
+  gap: calc(14 * var(--u));
+  margin: 0;
+  padding: calc(4 * var(--u)) calc(22 * var(--u)) calc(14 * var(--u));
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: calc(22 * var(--u));
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.encartes__track::-webkit-scrollbar {
+  display: none;
+}
+
+.encartes__slide {
+  flex: 0 0 calc(210 * var(--u));
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: calc(18 * var(--u));
+  background: var(--white);
+  box-shadow: 0 calc(8 * var(--u)) calc(22 * var(--u)) rgba(0, 0, 0, 0.16);
+  scroll-snap-align: start;
+}
+
+.encartes__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Espaço reservado enquanto o encarte da semana não é cadastrado */
+.encartes__reservado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(12 * var(--u));
+  width: 100%;
+  height: 100%;
+  padding: calc(16 * var(--u));
+  background:
+    radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.22) 0 18%, transparent 19%),
+    radial-gradient(circle at 10% 92%, rgba(0, 0, 0, 0.14) 0 24%, transparent 25%),
+    linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.encartes__reservado-selo {
+  padding: calc(5 * var(--u)) calc(12 * var(--u));
+  border-radius: 999px;
+  background: var(--black);
+  font-size: calc(11 * var(--u));
+  letter-spacing: 0.12em;
+}
+
+.encartes__reservado-titulo {
+  font-size: calc(26 * var(--u));
+  line-height: 1.05;
+}
+
+.encartes__reservado-texto {
+  font-family: var(--font-display);
+  font-size: calc(12 * var(--u));
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Setas + indicadores */
+.encartes__controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(14 * var(--u));
+  margin-top: calc(6 * var(--u));
+}
+
+.encartes__seta {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(40 * var(--u));
+  height: calc(40 * var(--u));
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.encartes__seta svg {
+  width: 55%;
+  height: 55%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.encartes__seta:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
+.encartes__seta:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.encartes__dots {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+}
+
+.encartes__dot {
+  width: calc(8 * var(--u));
+  height: calc(8 * var(--u));
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.encartes__dot.is-active {
+  width: calc(22 * var(--u));
+  background: var(--green-dark);
+}
+
+/* Desktop: texto à esquerda, carrossel de stories à direita */
+@media (min-width: 1024px) {
+  .encartes__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    align-items: center;
+    gap: calc(56 * var(--u));
+    width: var(--container);
+    padding: calc(88 * var(--u)) 0;
+  }
+
+  .encartes__content {
+    padding: 0;
+  }
+
+  .encartes__kicker {
+    font-size: calc(20 * var(--u));
+  }
+
+  .encartes__title {
+    font-size: calc(56 * var(--u));
+    line-height: calc(60 * var(--u));
+  }
+
+  .encartes__text {
+    font-size: calc(21 * var(--u));
+  }
+
+  .encartes__destaques {
+    gap: calc(12 * var(--u));
+    margin-top: calc(26 * var(--u));
+  }
+
+  .encartes__destaque {
+    font-size: calc(19 * var(--u));
+  }
+
+  .encartes__cta {
+    margin-top: calc(34 * var(--u));
+  }
+
+  .encartes__track {
+    gap: calc(18 * var(--u));
+    padding-inline: calc(4 * var(--u));
+    scroll-padding-inline: calc(4 * var(--u));
+  }
+
+  /* Cabem 2 encartes inteiros e um pedaço do terceiro, indicando que há mais */
+  .encartes__slide {
+    flex-basis: calc((100% - 18 * var(--u) * 2) / 2.5);
+    border-radius: calc(22 * var(--u));
+  }
+
+  .encartes__reservado-titulo {
+    font-size: calc(30 * var(--u));
+  }
+
+  .encartes__controles {
+    margin-top: calc(10 * var(--u));
+  }
+
+  .encartes__seta {
+    width: calc(44 * var(--u));
+    height: calc(44 * var(--u));
+  }
+}

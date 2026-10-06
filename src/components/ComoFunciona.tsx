@@ -12,9 +12,7 @@ const PASSOS: Passo[] = [
     title: 'Escolha',
     text: (
       <>
-        Escolha seus produtos <span className="hl-green">direto na prateleira</span>,
-        <br />
-        sem cartão ou senha na entrada.
+        Escolha seus produtos <span className="hl-green">direto na prateleira</span>.
       </>
     ),
   },

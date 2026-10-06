@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { BASE_PATH, PARCEIRO_URL } from '../constants'
+import { BASE_PATH, CONSULTOR_URL } from '../constants'
 import CtaButton from './CtaButton'
 import './Parceiro.css'
 
@@ -189,9 +189,8 @@ export default function Parceiro() {
           </p>
           <CtaButton
             className="parceiro__cta"
-            size="compact"
-            href={PARCEIRO_URL}
-            label="quero ser um parceiro"
+            href={CONSULTOR_URL}
+            label="quero falar com a Homeplace"
           />
         </div>
 

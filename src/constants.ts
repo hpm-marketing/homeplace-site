@@ -18,19 +18,31 @@ export const SITE_TITLE = 'Homeplace Market | Minimercado autônomo para condom�
 export const SITE_DESCRIPTION =
   'Homeplace Market: o minimercado autônomo ideal para o seu condomínio ou empresa. Aberto 24h, simples, prático e rápido. São mais de 40 lojas no Ceará.'
 
-const WHATSAPP_NUMBER = '558586813102'
+const WHATSAPP_NUMBER = '558591371751'
 const PARCEIRO_WHATSAPP_NUMBER = '558588970673'
 const SAC_WHATSAPP_NUMBER = '5585999099972'
 
 export const whatsappLink = (message: string, phoneNumber = WHATSAPP_NUMBER) =>
   `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
-export const CONSULTOR_URL = whatsappLink('Olá! Quero falar com um consultor da Homeplace Market.')
+export const CONSULTOR_URL = whatsappLink('Olá! Quero falar com a Homeplace Market.')
 export const PARCEIRO_URL = whatsappLink(
   'Olá! Quero ser um fornecedor da Homeplace Market.',
   PARCEIRO_WHATSAPP_NUMBER,
 )
 export const INSTAGRAM_URL = 'https://www.instagram.com/homeplacemarket/'
+
+/* Endereço do Centro de Distribuição (rodapé e dados estruturados do Google) */
+export const ENDERECO_CD = {
+  rua: 'Av. Nova Fortaleza, 979',
+  bairro: 'Planalto Ayrton Senna',
+  cidade: 'Fortaleza',
+  uf: 'CE',
+  cep: '60766-680',
+}
+export const ENDERECO_CD_MAPA_URL =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent('Av. Nova Fortaleza, 979 - Planalto Ayrton Senna, Fortaleza - CE, 60766-680')
 export const SAC_URL = whatsappLink('Olá! Preciso de atendimento do SAC da Homeplace Market.', SAC_WHATSAPP_NUMBER)
 
 /* Perguntas do FAQ: usadas na seção e nos dados estruturados do Google (FAQPage) */

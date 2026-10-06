@@ -12,6 +12,8 @@ import marcaPurina from '../assets/marca-purina.png'
 import marcaRoma from '../assets/marca-roma.png'
 import marcaSantaclara from '../assets/marca-santaclara.png'
 import marcaSolar from '../assets/marca-solar.png'
+import { PARCEIRO_URL } from '../constants'
+import CtaButton from './CtaButton'
 import './Marcas.css'
 
 const row1Logos = [
@@ -50,6 +52,13 @@ export default function Marcas() {
           <p className="marcas__text t-body">
             Produtos das marcas que você já confia, selecionados para o seu dia a dia.
           </p>
+          <CtaButton
+            className="marcas__cta"
+            variant="green"
+            size="compact"
+            href={PARCEIRO_URL}
+            label="quero ser um parceiro"
+          />
         </div>
 
         <div className="marcas__marquee-container" aria-label="Marcas parceiras em carrossel">
