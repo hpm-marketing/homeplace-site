@@ -18,4 +18,4 @@
 :HL["/_next/static/media/icone-distribuicao.2ik1_vfhkowio.svg","image"]
 :HL["/_next/static/media/whatsapp-branco.409b90fsacyt1.svg","image"]
 :HL["/_next/static/media/totens.38jt_lk25pxbb.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"Crc_tMzveKXVNaHe8Eoq8"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"x9bTWif30DIbT5Crd3cwh"}
