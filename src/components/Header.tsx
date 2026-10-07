@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import logo from '../assets/logo-header.svg'
+import logo from '../assets/logo-heaader.svg'
 import menuIcon from '../assets/menu.svg'
 import { CONSULTOR_URL, NAV_LINKS } from '../constants'
 import './Header.css'

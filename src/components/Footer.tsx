@@ -1,4 +1,4 @@
-import logoFooter from '../assets/logo-footer.svg'
+import logoFooter from '../assets/logo-foooter.svg'
 import instagram from '../assets/instagram.svg'
 import { ENDERECO_CD, ENDERECO_CD_MAPA_URL, INSTAGRAM_URL, SAC_URL } from '../constants'
 import './Footer.css'
