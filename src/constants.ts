@@ -14,9 +14,54 @@ export const urlPublica = (caminho: string) =>
   `${SITE_URL}${caminho.startsWith(BASE_PATH) ? caminho.slice(BASE_PATH.length) : caminho}`
 
 export const SITE_NAME = 'Homeplace Market'
-export const SITE_TITLE = 'Homeplace Market | Minimercado autônomo para condomínios e empresas'
+/* ───────── Textos de SEO e GEO (buscadores e assistentes de IA) ───────── */
+export const SITE_TITLE =
+  'Homeplace Market | Minimercado autônomo 24h para condomínios e empresas em Fortaleza'
+
+/* <meta name="description">: o resumo que aparece no resultado do Google */
 export const SITE_DESCRIPTION =
-  'Homeplace Market: o minimercado autônomo ideal para o seu condomínio ou empresa. Aberto 24h, simples, prático e rápido. São mais de 40 lojas no Ceará.'
+  'Minimercado autônomo 24h para condomínios e empresas em Fortaleza e no Ceará. Mercadinho de condomínio simples, prático e rápido, sem custo de instalação.'
+
+/* Texto da prévia ao compartilhar o link (WhatsApp, Facebook, LinkedIn, X) */
+export const SITE_DESCRIPTION_SOCIAL =
+  'Homeplace Market: minimercado autônomo 24h em Fortaleza. Mercadinho de condomínio e mercadinho para empresas com +40 lojas no Ceará. Fale com a gente :)'
+
+/* Descrição da empresa nos dados estruturados (schema.org) */
+export const SITE_DESCRIPTION_SCHEMA =
+  'Minimercado autônomo 24h para condomínios e empresas no Ceará. O cliente escolhe os produtos, escaneia no totem e paga por aproximação, Pix ou cartão.'
+
+export const SITE_SLOGAN = 'Estamos onde você mais precisa'
+
+export const SITE_KEYWORDS = [
+  'minimercado autônomo',
+  'minimercado',
+  'mercadinho de condomínio',
+  'mercadinho para empresas',
+  'mercado autônomo 24h',
+  'minimercado em condomínio',
+  'mercado de autoatendimento',
+  'loja autônoma',
+  'honest market',
+  'Homeplace Market',
+  'Fortaleza',
+  'Ceará',
+]
+
+/* Temas em que a empresa é referência (schema.org `knowsAbout`) */
+export const SITE_TEMAS = [
+  'minimercado autônomo',
+  'mercadinho de condomínio',
+  'mercadinho para empresas',
+  'mercado de autoatendimento 24h',
+]
+
+/* Localização para buscas regionais (meta geo.* e `areaServed`) */
+export const GEO_REGIAO = 'BR-CE'
+export const GEO_CIDADE = 'Fortaleza'
+export const GEO_ESTADO = 'Ceará'
+
+/* Telefone do SAC no formato internacional (schema.org `contactPoint`) */
+export const SAC_TELEFONE = '+55-85-99909-9972'
 
 const WHATSAPP_NUMBER = '558591371751'
 const PARCEIRO_WHATSAPP_NUMBER = '558588970673'
@@ -45,15 +90,17 @@ export const ENDERECO_CD_MAPA_URL =
   encodeURIComponent('Av. Nova Fortaleza, 979 - Planalto Ayrton Senna, Fortaleza - CE, 60766-680')
 export const SAC_URL = whatsappLink('Olá! Preciso de atendimento do SAC da Homeplace Market.', SAC_WHATSAPP_NUMBER)
 
-/* Perguntas do FAQ: usadas na seção e nos dados estruturados do Google (FAQPage) */
+/* Perguntas do FAQ: usadas na seção e nos dados estruturados do Google (FAQPage).
+   O texto visível na página e o dos dados estruturados precisam ser o mesmo,
+   por isso os dois saem desta lista. */
 export const FAQ_PERGUNTAS = [
   {
-    q: 'O que é um mercado autônomo?',
-    a: 'É um minimercado de autoatendimento, sem funcionários no caixa: você escolhe os produtos direto na prateleira, escaneia os códigos no totem e paga por aproximação, Pix ou cartão. Tudo em poucos minutos, a qualquer hora.',
+    q: 'O que é um minimercado autônomo?',
+    a: 'É um minimercado de autoatendimento, sem funcionários no caixa. Você escolhe os produtos na prateleira, escaneia os códigos no totem e paga por aproximação, Pix ou cartão, a qualquer hora.',
   },
   {
-    q: 'Como faço para instalar o Homeplace Market no meu condomínio?',
-    a: 'Basta falar com um de nossos consultores. Avaliamos o espaço do seu condomínio ou empresa e instalamos o Homeplace Market sem nenhum custo de instalação.',
+    q: 'Como instalar um mercadinho no meu condomínio ou empresa?',
+    a: 'Fale com um consultor da Homeplace Market. A equipe avalia o espaço do condomínio ou da empresa e instala a loja sem custo de instalação.',
   },
   {
     q: 'É seguro comprar em um mercado sem funcionário?',
@@ -65,7 +112,7 @@ export const FAQ_PERGUNTAS = [
   },
   {
     q: 'O Homeplace Market funciona 24 horas?',
-    a: 'Sim! Estamos onde você precisa, 24 horas por dia, todos os dias da semana.',
+    a: 'Sim. As lojas funcionam 24 horas por dia, todos os dias da semana, com monitoramento em tempo real.',
   },
 ]
 

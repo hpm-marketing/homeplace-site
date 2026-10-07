@@ -2,8 +2,12 @@ import type { Metadata, Viewport } from 'next'
 import { Carlito, Inter } from 'next/font/google'
 import lojaContainer from '../assets/loja-container.png'
 import {
+  GEO_CIDADE,
+  GEO_REGIAO,
   IS_COPIA_SECUNDARIA,
   SITE_DESCRIPTION,
+  SITE_DESCRIPTION_SOCIAL,
+  SITE_KEYWORDS,
   SITE_NAME,
   SITE_TITLE,
   SITE_URL,
@@ -34,16 +38,7 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  keywords: [
-    'minimercado autônomo',
-    'mercado autônomo',
-    'mercado em condomínio',
-    'minimercado para empresas',
-    'loja autônoma 24h',
-    'Homeplace Market',
-    'Fortaleza',
-    'Ceará',
-  ],
+  keywords: SITE_KEYWORDS,
   alternates: { canonical: `${SITE_URL}/` },
   openGraph: {
     type: 'website',
@@ -51,7 +46,7 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    description: SITE_DESCRIPTION_SOCIAL,
     images: [
       {
         url: OG_IMAGE,
@@ -64,8 +59,13 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    description: SITE_DESCRIPTION_SOCIAL,
     images: [OG_IMAGE],
+  },
+  /* Localização para buscas regionais: <meta name="geo.region"> e <meta name="geo.placename"> */
+  other: {
+    'geo.region': GEO_REGIAO,
+    'geo.placename': GEO_CIDADE,
   },
   /* A cópia do GitHub Pages não entra no Google (evita conteúdo duplicado) */
   robots: IS_COPIA_SECUNDARIA ? { index: false, follow: false } : { index: true, follow: true },
