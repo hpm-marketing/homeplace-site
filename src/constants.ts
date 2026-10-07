@@ -16,7 +16,7 @@ export const urlPublica = (caminho: string) =>
 export const SITE_NAME = 'Homeplace Market'
 /* ───────── Textos de SEO e GEO (buscadores e assistentes de IA) ───────── */
 export const SITE_TITLE =
-  'Homeplace Market | Minimercado autônomo 24h para condomínios e empresas em Fortaleza'
+  'Homeplace Market | Minimercado autônomo para condomínios e empresas em Fortaleza'
 
 /* <meta name="description">: o resumo que aparece no resultado do Google */
 export const SITE_DESCRIPTION =
