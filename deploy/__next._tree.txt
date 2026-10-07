@@ -10,7 +10,7 @@
 :HL["/_next/static/media/icone-pague.3j8h5ftdr81i_.svg","image"]
 :HL["/_next/static/media/icone-monitoramento.3sp_jtstarrji.svg","image"]
 :HL["/_next/static/media/icone-franqueados.0w3q2h8xba0q_.svg","image"]
-:HL["/_next/static/media/logo-footer.1k37cymui2sid.svg","image"]
+:HL["/_next/static/media/logo-foooter.0smc30hnrase5.svg","image"]
 :HL["/_next/static/media/instagram.2_1e8ddatf-ta.svg","image"]
 :HL["/_next/static/media/icone-mix.0uafqx-svdd14.svg","image"]
 :HL["/_next/static/media/icone-logistica.0t78vomq489yb.svg","image"]
@@ -18,4 +18,4 @@
 :HL["/_next/static/media/icone-distribuicao.2ik1_vfhkowio.svg","image"]
 :HL["/_next/static/media/whatsapp-branco.409b90fsacyt1.svg","image"]
 :HL["/_next/static/media/totens.38jt_lk25pxbb.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"Q0Rbzre5B8nENVcKMR3g1"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"Crc_tMzveKXVNaHe8Eoq8"}
