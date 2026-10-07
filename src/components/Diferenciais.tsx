@@ -49,7 +49,9 @@ const DIFERENCIAIS = [
       <>
         EQUIPE DE
         <br />
-        LOGÍSTICA
+        LOGÍSTICA 
+        <br/>
+        PRÓPRIA
       </>
     ),
     extra: <img className="dif-card__truck" src={caminhao.src} alt="" width={44} height={28} />,
