@@ -82,10 +82,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${carlito.variable}`}>
-      <body>
-        {children}
+      <head>
         <GoogleTag />
-      </body>
+      </head>
+      <body>{children}</body>
     </html>
   )
 }

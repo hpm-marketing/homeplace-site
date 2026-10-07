@@ -17,7 +17,7 @@ export const urlPublica = (caminho: string) =>
    Cole aqui o ID de métricas da propriedade do GA4, no formato 'G-XXXXXXXXXX'
    (Analytics → Administrador → Fluxos de dados → Web → ID de métricas).
    Enquanto estiver vazio, a tag não é instalada. */
-export const GOOGLE_TAG_ID: string = ''
+export const GOOGLE_TAG_ID: string = 'G-HSPBX52SNL'
 
 export const SITE_NAME = 'Homeplace Market'
 /* ───────── Textos de SEO e GEO (buscadores e assistentes de IA) ───────── */
