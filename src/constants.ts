@@ -100,7 +100,7 @@ export const FAQ_PERGUNTAS = [
   },
   {
     q: 'Como instalar um mercadinho no meu condomínio ou empresa?',
-    a: 'Fale com um consultor da Homeplace Market. A equipe avalia o espaço do condomínio ou da empresa e instala a loja sem custo de instalação.',
+    a: 'Fale com um dos nossos atendentes da Homeplace Market. A equipe avalia o espaço do condomínio ou da empresa e instala a loja sem custo de instalação.',
   },
   {
     q: 'É seguro comprar em um mercado sem funcionário?',
