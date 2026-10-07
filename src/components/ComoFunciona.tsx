@@ -45,9 +45,9 @@ export default function ComoFunciona() {
     <section id="como-funciona" className="como" aria-labelledby="como-titulo">
       <div className="como__inner">
         <h2 id="como-titulo" className="como__title t-black">
-          simples, prático
+          simples,
           <br />
-          e rápido
+          prático e rápido
         </h2>
 
         <ol className="como__steps">
