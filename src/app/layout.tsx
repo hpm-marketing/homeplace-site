@@ -13,6 +13,7 @@ import {
   SITE_URL,
   urlPublica,
 } from '../constants'
+import GoogleTag from '../components/GoogleTag'
 import '../index.css'
 
 /* Fontes baixadas no build e servidas pelo próprio site (sem depender do Google Fonts) */
@@ -81,7 +82,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${carlito.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleTag />
+      </body>
     </html>
   )
 }

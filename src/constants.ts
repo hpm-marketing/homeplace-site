@@ -13,6 +13,12 @@ export const IS_COPIA_SECUNDARIA = BASE_PATH !== ''
 export const urlPublica = (caminho: string) =>
   `${SITE_URL}${caminho.startsWith(BASE_PATH) ? caminho.slice(BASE_PATH.length) : caminho}`
 
+/* ───────── Google Analytics (Tag do Google) ─────────
+   Cole aqui o ID de métricas da propriedade do GA4, no formato 'G-XXXXXXXXXX'
+   (Analytics → Administrador → Fluxos de dados → Web → ID de métricas).
+   Enquanto estiver vazio, a tag não é instalada. */
+export const GOOGLE_TAG_ID: string = ''
+
 export const SITE_NAME = 'Homeplace Market'
 /* ───────── Textos de SEO e GEO (buscadores e assistentes de IA) ───────── */
 export const SITE_TITLE =
