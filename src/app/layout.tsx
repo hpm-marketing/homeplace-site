@@ -14,6 +14,7 @@ import {
   urlPublica,
 } from '../constants'
 import GoogleTag from '../components/GoogleTag'
+import { GoogleTagManager, GoogleTagManagerNoScript } from '../components/GoogleTagManager'
 import '../index.css'
 
 /* Fontes baixadas no build e servidas pelo próprio site (sem depender do Google Fonts) */
@@ -83,9 +84,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${inter.variable} ${carlito.variable}`}>
       <head>
+        <GoogleTagManager />
         <GoogleTag />
       </head>
-      <body>{children}</body>
+      <body>
+        <GoogleTagManagerNoScript />
+        {children}
+      </body>
     </html>
   )
 }

@@ -19,6 +19,10 @@ export const urlPublica = (caminho: string) =>
    Enquanto estiver vazio, a tag não é instalada. */
 export const GOOGLE_TAG_ID: string = 'G-HSPBX52SNL'
 
+/* ID do contêiner do Google Tag Manager, no formato 'GTM-XXXXXXX'.
+   Enquanto estiver vazio, o GTM não é instalado. */
+export const GTM_ID: string = 'GTM-T9J4NZBX'
+
 export const SITE_NAME = 'Homeplace Market'
 /* ───────── Textos de SEO e GEO (buscadores e assistentes de IA) ───────── */
 export const SITE_TITLE =
